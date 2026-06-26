@@ -7,6 +7,7 @@ import { graphLinks, graphNodes } from "@/lib/site-data"
 const clusterLabels: Record<string, string> = {
   hub: "Core",
   method: "Method",
+  gtm: "GTM",
   experience: "Experience",
   output: "Output",
   frontier: "Frontier",
@@ -36,11 +37,14 @@ export function KnowledgeGraph() {
       <div className="graph-heading">
         <p className="section-kicker">Knowledge Graph</p>
         <h1>KevinZ Knowledge Graph</h1>
-        <p>Product, market, hardware, writing and AI hardware in one living map.</p>
+        <p>产品、市场、硬件、写作与 AI 硬件，在同一张网络里互相牵引。</p>
       </div>
 
       <div className="cluster-orbit cluster-orbit-method">
         <span>Method</span>
+      </div>
+      <div className="cluster-orbit cluster-orbit-gtm">
+        <span>GTM</span>
       </div>
       <div className="cluster-orbit cluster-orbit-experience">
         <span>Experience</span>

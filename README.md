@@ -2,7 +2,7 @@
 
 My personal narrative website and digital portfolio.
 
-Loom is the codebase for a personal website that presents a structured version of Kevin Zhang: identity, work, writing, and a knowledge graph. The site is built with Next.js and designed for deployment on Vercel.
+This is the codebase for KevinZ.com.cn, a personal website that presents a structured version of Kevin Zhang: identity, work, writing, and a knowledge graph. The site is built with Next.js and designed for deployment on Vercel.
 
 ## Tech Stack
 

@@ -45,8 +45,7 @@ export default async function Home({
 
       <section className="loom-note">
         <p>
-          Loom 不是一个对外售卖的产品，而是一种整理自我的方法：Thread
-          是经历，Prism 是表达，Loom 是让线索重新交织并被看见的系统。
+          KevinZ.com.cn 不是简历页，而是一套个人表达系统：把经历、作品和方法整理成可以持续生长的结构。
         </p>
         <Link href="/about">继续了解</Link>
       </section>

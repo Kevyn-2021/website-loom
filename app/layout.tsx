@@ -13,7 +13,8 @@ export default function RootLayout({
       <body>
         <nav className="site-nav" aria-label="主导航">
           <Link className="brand" href="/">
-            Loom
+            <span>Kevin</span>
+            <strong>Z</strong>
           </Link>
           <div className="nav-links">
             {navItems.map((item) => (
