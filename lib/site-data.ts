@@ -141,6 +141,13 @@ export const works = [
       "把散落经历、作品和思考方式整理成可浏览的个人叙事网站。",
   },
   {
+    title: "PPVI 风格个人网站系统",
+    type: "Website",
+    year: "2026",
+    description:
+      "以克制灰阶、玻璃层次和交互知识图谱为核心，重新定义个人网站的视觉表达方式。",
+  },
+  {
     title: "产品与职业思考流",
     type: "Newsletter",
     year: "2026",

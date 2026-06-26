@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f5f0;
-  --foreground: #1d1c19;
-  --muted: #6d675c;
-  --line: #d8d0c2;
-  --panel: #fffdfa;
-  --accent: #235a72;
-  --accent-2: #8a4f2a;
+  --background: #f4f4f1;
+  --foreground: #171717;
+  --muted: #6b6b63;
+  --line: #d7d7d1;
+  --panel: rgba(255, 255, 252, 0.72);
+  --panel-solid: #fbfbf7;
+  --accent: #2f5f6f;
+  --accent-2: #a35f37;
+  --shadow: rgba(23, 23, 23, 0.08);
 }
 
 @theme inline {
@@ -24,6 +26,18 @@ body {
   margin: 0;
 }
 
+body::before {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 255, 252, 0.92), transparent 28%),
+    radial-gradient(circle at 80% 14%, rgba(47, 95, 111, 0.11), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 252, 0.58), transparent 42%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -35,16 +49,20 @@ a {
 
 .site-nav {
   align-items: center;
-  border-bottom: 1px solid var(--line);
+  border: 1px solid rgba(215, 215, 209, 0.76);
+  border-radius: 999px;
   display: flex;
   justify-content: space-between;
-  min-height: 72px;
-  padding: 0 40px;
+  min-height: 60px;
+  margin: 18px auto 0;
+  max-width: 1160px;
+  padding: 0 22px;
   position: sticky;
-  top: 0;
+  top: 14px;
   z-index: 10;
-  background: color-mix(in srgb, var(--background) 92%, transparent);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 252, 0.72);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 80px var(--shadow);
 }
 
 .brand {
@@ -63,6 +81,7 @@ a {
 .nav-links a {
   color: var(--muted);
   font-size: 14px;
+  padding: 8px 0;
 }
 
 .nav-links a:hover,
@@ -73,19 +92,20 @@ a {
 main {
   margin: 0 auto;
   max-width: 1160px;
-  padding: 64px 40px 96px;
+  padding: 72px 40px 96px;
 }
 
 .hero {
-  min-height: 64vh;
-  padding: 72px 0 56px;
+  min-height: 68vh;
+  padding: 76px 0 64px;
   position: relative;
 }
 
 .hero::before {
   background:
-    linear-gradient(105deg, transparent 0 42%, rgba(35, 90, 114, 0.18) 42% 43%, transparent 43%),
-    linear-gradient(75deg, transparent 0 52%, rgba(138, 79, 42, 0.14) 52% 53%, transparent 53%);
+    linear-gradient(105deg, transparent 0 42%, rgba(47, 95, 111, 0.22) 42% 43%, transparent 43%),
+    linear-gradient(75deg, transparent 0 52%, rgba(163, 95, 55, 0.16) 52% 53%, transparent 53%),
+    radial-gradient(circle at 62% 44%, rgba(255, 255, 252, 0.86), transparent 26%);
   content: "";
   inset: 20px 0 auto auto;
   height: 220px;
@@ -107,11 +127,13 @@ main {
 }
 
 .language-toggle {
+  background: rgba(255, 255, 252, 0.72);
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--accent);
   padding: 8px 14px;
   text-transform: none;
+  backdrop-filter: blur(12px);
 }
 
 .hero h1,
@@ -147,6 +169,8 @@ main {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 70px var(--shadow);
 }
 
 .summary-grid article {
@@ -221,8 +245,14 @@ p {
 }
 
 .narrative section {
-  border-left: 2px solid var(--accent);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 18px 70px var(--shadow);
   padding-left: 28px;
+  padding: 28px;
+  backdrop-filter: blur(16px);
 }
 
 .works-grid {
@@ -236,6 +266,16 @@ p {
   justify-content: space-between;
   overflow: hidden;
   padding: 22px;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.work-card:hover {
+  border-color: rgba(47, 95, 111, 0.38);
+  box-shadow: 0 26px 90px rgba(23, 23, 23, 0.11);
+  transform: translateY(-3px);
 }
 
 .work-meta,
@@ -287,11 +327,11 @@ p {
 
 .knowledge-map {
   background:
-    radial-gradient(circle at 50% 47%, rgba(35, 90, 114, 0.2), transparent 12%),
-    radial-gradient(circle at 33% 28%, rgba(35, 90, 114, 0.18), transparent 20%),
-    radial-gradient(circle at 76% 64%, rgba(81, 78, 133, 0.14), transparent 19%),
-    radial-gradient(circle at 24% 72%, rgba(138, 79, 42, 0.12), transparent 18%),
-    linear-gradient(120deg, #fbfaf6 0%, #f2efe6 52%, #f8f5ef 100%);
+    radial-gradient(circle at 50% 47%, rgba(47, 95, 111, 0.2), transparent 12%),
+    radial-gradient(circle at 33% 28%, rgba(47, 95, 111, 0.16), transparent 20%),
+    radial-gradient(circle at 76% 64%, rgba(78, 78, 92, 0.12), transparent 19%),
+    radial-gradient(circle at 24% 72%, rgba(163, 95, 55, 0.11), transparent 18%),
+    linear-gradient(120deg, #fbfbf7 0%, #eeeeea 52%, #f8f8f4 100%);
   border: 1px solid rgba(216, 208, 194, 0.88);
   border-radius: 8px;
   box-shadow: inset 0 0 90px rgba(29, 28, 25, 0.05);
@@ -318,7 +358,7 @@ p {
   max-width: 440px;
   position: absolute;
   top: 38px;
-  z-index: 4;
+  z-index: 5;
 }
 
 .graph-heading h1 {
@@ -404,10 +444,20 @@ p {
 
 .map-link {
   filter: drop-shadow(0 0 5px rgba(35, 90, 114, 0.16));
-  stroke: rgba(35, 90, 114, 0.48);
+  opacity: 0.28;
+  stroke: rgba(47, 95, 111, 0.5);
   stroke-linecap: round;
   stroke-width: 0.36;
   vector-effect: non-scaling-stroke;
+}
+
+.map-link.is-active {
+  opacity: 0.96;
+  stroke-width: 0.7;
+}
+
+.map-link.is-muted {
+  opacity: 0.18;
 }
 
 .map-link-experience {
@@ -424,14 +474,22 @@ p {
 
 .map-link-dot {
   fill: var(--accent);
-  opacity: 0.62;
+  opacity: 0.42;
+}
+
+.map-link-dot.is-active {
+  opacity: 1;
 }
 
 .map-node {
-  background: rgba(255, 253, 250, 0.76);
+  appearance: none;
+  background: rgba(255, 255, 252, 0.72);
   border: 1px solid rgba(216, 208, 194, 0.92);
   border-radius: 999px;
   box-shadow: 0 16px 42px rgba(29, 28, 25, 0.1);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
   min-height: 118px;
   padding: 20px;
   position: absolute;
@@ -439,6 +497,12 @@ p {
   width: 160px;
   z-index: 3;
   backdrop-filter: blur(14px);
+  text-align: left;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
 }
 
 .map-node span {
@@ -461,6 +525,27 @@ p {
   font-size: 12px;
   line-height: 1.45;
   margin: 0;
+}
+
+.map-node.is-active {
+  border-color: rgba(23, 23, 23, 0.42);
+  box-shadow:
+    0 22px 90px rgba(23, 23, 23, 0.16),
+    0 0 0 9px rgba(255, 255, 252, 0.42);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.map-node.is-neighbor:not(.is-active) {
+  opacity: 0.94;
+}
+
+.map-node.is-dimmed {
+  opacity: 0.42;
+}
+
+.map-node:focus-visible {
+  outline: 3px solid rgba(47, 95, 111, 0.38);
+  outline-offset: 4px;
 }
 
 .map-node-hub {
@@ -499,6 +584,38 @@ p {
 .map-node-orphan {
   border-style: dashed;
   opacity: 0.82;
+}
+
+.graph-inspector {
+  background: rgba(255, 255, 252, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  bottom: 32px;
+  box-shadow: 0 24px 90px var(--shadow);
+  max-width: 280px;
+  padding: 20px;
+  position: absolute;
+  right: 36px;
+  z-index: 5;
+  backdrop-filter: blur(18px);
+}
+
+.graph-inspector span {
+  color: var(--accent-2);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.graph-inspector h2 {
+  margin-bottom: 8px;
+}
+
+.graph-inspector p {
+  color: var(--muted);
+  margin: 0;
 }
 
 .graph-footnote {
@@ -548,6 +665,7 @@ p {
 @media (max-width: 860px) {
   .site-nav {
     align-items: flex-start;
+    border-radius: 18px;
     flex-direction: column;
     gap: 14px;
     padding: 18px 22px;
@@ -595,7 +713,7 @@ p {
   }
 
   .graph-heading,
-  .graph-footnote {
+  .graph-inspector {
     margin-bottom: 18px;
     position: static;
   }
@@ -610,6 +728,10 @@ p {
     position: static;
     transform: none;
     width: 100%;
+  }
+
+  .map-node.is-active {
+    transform: none;
   }
 
   .loom-note {
