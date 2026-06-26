@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { works } from "@/lib/site-data"
 
 export default function Works() {
@@ -11,16 +13,38 @@ export default function Works() {
 
       <section className="works-grid" aria-label="作品列表">
         {works.map((work) => (
-          <article className="work-card" key={`${work.year}-${work.title}`}>
+          work.href ? (
+            <Link
+              className="work-card work-card-link"
+              href={work.href}
+              key={`${work.year}-${work.title}`}
+            >
+              <WorkCardContent work={work} />
+            </Link>
+          ) : (
+            <article className="work-card" key={`${work.year}-${work.title}`}>
+              <WorkCardContent work={work} />
+            </article>
+          )
+        ))}
+      </section>
+    </main>
+  )
+}
+
+function WorkCardContent({
+  work,
+}: {
+  work: (typeof works)[number]
+}) {
+  return (
+    <>
             <div className="work-meta">
               <span className="tag">{work.type}</span>
               <span>{work.year}</span>
             </div>
             <h2>{work.title}</h2>
             <p>{work.description}</p>
-          </article>
-        ))}
-      </section>
-    </main>
+    </>
   )
 }

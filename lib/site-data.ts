@@ -19,6 +19,10 @@ export const homeCopy = {
       "核心能力是把市场洞察、用户需求、产品定义、4P、IPMS 和上市节奏放在同一张图里处理，让抽象目标转化为团队可以执行的动作。",
     direction:
       "下一阶段的关注点落在消费电子、机器人与 AI 硬件的交汇处。写作和知识图谱，则用于把长期实践整理成可以复用、也可以继续生长的结构。",
+    originTitle: "为什么要有这个网站",
+    origin:
+      "人的经历常常不是一条直线，而是散落的线索：日常思考、项目现场、未整理的知识、不断变化的判断。KevinZ 试图把这些线索重新梳理，让它们像丝线一样被编织成结构；再把形成的思想放到公共页面上，让外部读者看到一个更完整、更清晰的侧面。",
+    originMeta: ["Thread", "Loom", "Prism"],
   },
   en: {
     eyebrow: "Personal Knowledge System",
@@ -31,6 +35,10 @@ export const homeCopy = {
       "The core method is connecting market insight, user needs, product definition, 4P, IPMS, and launch rhythm into executable decisions.",
     direction:
       "The current focus is the intersection of consumer electronics, robotics, and AI hardware, with writing and knowledge mapping turning practice into reusable structure.",
+    originTitle: "Why this site exists",
+    origin:
+      "A life is rarely a finished answer. It is made of scattered threads: thoughts, projects, unfinished notes, and shifting judgment. KevinZ is a place to weave those threads into structure, then refract them outward into a clearer public expression.",
+    originMeta: ["Thread", "Loom", "Prism"],
   },
 }
 
@@ -132,6 +140,7 @@ export const works = [
     year: "2026",
     description:
       "用于帮助 AI 理解个人背景、偏好和表达风格的结构化上下文系统。",
+    href: "/works/ai-context",
   },
   {
     title: "KevinZ 个人叙事网站",
@@ -146,6 +155,7 @@ export const works = [
     year: "2026",
     description:
       "以克制灰阶、玻璃层次和交互知识图谱为核心，为个人网站建立统一的视觉表达方式。",
+    href: "/works/kvi",
   },
   {
     title: "产品与职业思考流",

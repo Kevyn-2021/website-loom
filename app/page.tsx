@@ -25,6 +25,19 @@ export default async function Home({
         <p className="hero-intro">{copy.intro}</p>
       </section>
 
+      <section className="origin-panel" aria-label="网站初衷">
+        <div>
+          <p className="section-kicker">Origin</p>
+          <h2>{copy.originTitle}</h2>
+        </div>
+        <p>{copy.origin}</p>
+        <div className="origin-tags" aria-label="核心隐喻">
+          {copy.originMeta.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
+
       <section className="summary-grid" aria-label="个人摘要">
         <article>
           <p className="section-kicker">Identity</p>
@@ -44,9 +57,7 @@ export default async function Home({
       </section>
 
       <section className="loom-note">
-        <p>
-          KevinZ.com.cn 不是简历页，而是一套持续生长的个人知识系统：经历、作品和方法被整理到同一个结构里。
-        </p>
+        <p>如果需要一条更完整的路径，可以继续阅读经历叙事，或直接从作品和知识图谱进入。</p>
         <Link href="/about">继续了解</Link>
       </section>
     </main>
