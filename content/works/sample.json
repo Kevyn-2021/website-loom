@@ -1,0 +1,20 @@
+[
+  {
+    "id": "w1",
+    "type": "newsletter",
+    "title": "Sample Newsletter",
+    "description": "Initial structure placeholder"
+  },
+  {
+    "id": "w2",
+    "type": "app",
+    "title": "Sample App",
+    "description": "Initial structure placeholder"
+  }
+  {
+  "id": "ai-context",
+  "type": "system",
+  "title": "AI Context Prompt",
+  "description": "Prompt-style structured profile for AI understanding"
+  }
+]
