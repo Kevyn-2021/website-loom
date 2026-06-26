@@ -2,28 +2,35 @@
 
 import { useMemo, useState } from "react"
 
-import { graphLinks, graphNodes } from "@/lib/site-data"
+import type { KnowledgeGraphData } from "@/lib/knowledge-graph"
 
 const clusterLabels: Record<string, string> = {
-  hub: "Core",
+  core: "Core",
   method: "Method",
   gtm: "GTM",
   experience: "Experience",
   output: "Output",
   frontier: "Frontier",
-  orphan: "Unlinked",
+  personal: "Personal",
 }
 
-export function KnowledgeGraph() {
-  const [activeNodeId, setActiveNodeId] = useState<string | null>("kevin")
+type KnowledgeGraphProps = {
+  graph: KnowledgeGraphData
+}
+
+export function KnowledgeGraph({ graph }: KnowledgeGraphProps) {
+  const [activeNodeId, setActiveNodeId] = useState<string | null>(
+    graph.nodes[0]?.id ?? null
+  )
+  const defaultNode = graph.nodes[0]
   const nodeById = useMemo(
-    () => Object.fromEntries(graphNodes.map((node) => [node.id, node])),
-    []
+    () => Object.fromEntries(graph.nodes.map((node) => [node.id, node])),
+    [graph.nodes]
   )
   const activeNode =
-    graphNodes.find((node) => node.id === activeNodeId) ?? graphNodes[0]
+    graph.nodes.find((node) => node.id === activeNodeId) ?? defaultNode
   const activeLinkIds = new Set(
-    graphLinks
+    graph.links
       .filter((link) => link.from === activeNode.id || link.to === activeNode.id)
       .flatMap((link) => [link.from, link.to])
   )
@@ -32,7 +39,7 @@ export function KnowledgeGraph() {
     <section
       className="knowledge-map"
       aria-label="KevinZ 个人知识图谱"
-      onMouseLeave={() => setActiveNodeId("kevin")}
+      onMouseLeave={() => setActiveNodeId(defaultNode.id)}
     >
       <div className="graph-heading">
         <p className="section-kicker">Knowledge Graph</p>
@@ -63,9 +70,10 @@ export function KnowledgeGraph() {
         aria-label="知识节点之间的关联"
         preserveAspectRatio="none"
       >
-        {graphLinks.map((link) => {
+        {graph.links.map((link) => {
           const from = nodeById[link.from]
           const to = nodeById[link.to]
+          if (!from || !to) return null
           const isActive =
             activeNode.id === link.from || activeNode.id === link.to
 
@@ -91,18 +99,18 @@ export function KnowledgeGraph() {
         })}
       </svg>
 
-      {graphNodes.map((node) => {
+      {graph.nodes.map((node) => {
         const isActive = node.id === activeNode.id
         const isNeighbor = activeLinkIds.has(node.id)
 
         return (
           <button
-            aria-label={`${node.label}: ${node.detail}`}
+            aria-label={`${node.label}: ${node.note}`}
             className={`map-node map-node-${node.cluster} ${
               isActive ? "is-active" : ""
             } ${isNeighbor ? "is-neighbor" : "is-dimmed"}`}
             key={node.id}
-            onBlur={() => setActiveNodeId("kevin")}
+            onBlur={() => setActiveNodeId(defaultNode.id)}
             onFocus={() => setActiveNodeId(node.id)}
             onMouseEnter={() => setActiveNodeId(node.id)}
             style={{
@@ -114,7 +122,7 @@ export function KnowledgeGraph() {
           >
             <span>{clusterLabels[node.cluster]}</span>
             <h2>{node.label}</h2>
-            <p>{node.detail}</p>
+            <p>{node.note}</p>
           </button>
         )
       })}
@@ -122,7 +130,7 @@ export function KnowledgeGraph() {
       <aside className="graph-inspector" aria-live="polite">
         <span>{clusterLabels[activeNode.cluster]}</span>
         <h2>{activeNode.label}</h2>
-        <p>{activeNode.detail}</p>
+        <p>{activeNode.note}</p>
       </aside>
     </section>
   )

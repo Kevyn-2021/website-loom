@@ -580,6 +580,7 @@ p {
   outline-offset: 4px;
 }
 
+.map-node-core,
 .map-node-hub {
   background: #1d1c19;
   border-color: #1d1c19;
@@ -592,6 +593,8 @@ p {
   width: 132px;
 }
 
+.map-node-core p,
+.map-node-core span,
 .map-node-hub p,
 .map-node-hub span {
   color: rgba(247, 245, 240, 0.72);
@@ -617,6 +620,7 @@ p {
   border-color: rgba(81, 78, 133, 0.4);
 }
 
+.map-node-personal,
 .map-node-orphan {
   border-style: dashed;
   opacity: 0.82;
