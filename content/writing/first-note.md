@@ -1,7 +1,7 @@
 ---
-title: First Note
+title: 写作入口
 date: 2026-01-01
 tags: [thought]
 ---
 
-This is the first writing entry in Loom.
+这里会保留时间序的产品、商业和个人成长思考。内容以手写为主，先作为长期写作入口。
