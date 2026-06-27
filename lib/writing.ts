@@ -16,6 +16,13 @@ export type WritingPost = {
   html: string
 }
 
+type ListNode = {
+  depth: number
+  ordered: boolean
+  content: string
+  children: ListNode[]
+}
+
 export function getAllWriting(): WritingPost[] {
   return fs
     .readdirSync(writingPath)
@@ -142,13 +149,11 @@ function renderBlock(block: string) {
     return renderMixedBlock(lines)
   }
 
-  if (lines.every((line) => /^-\s+/.test(line.trim()))) {
-    return `<ul>${lines
-      .map((line) => `<li>${renderInline(line.replace(/^-\s+/, ""))}</li>`)
-      .join("")}</ul>`
+  if (isListBlock(lines)) {
+    return renderList(lines)
   }
 
-  if (lines.some((line) => /^-\s+/.test(line.trim()))) {
+  if (lines.some((line) => isListLine(line))) {
     return renderMixedBlock(lines)
   }
 
@@ -176,9 +181,7 @@ function renderMixedBlock(lines: string[]) {
       return
     }
 
-    html.push(`<ul>${listLines
-      .map((line) => `<li>${renderInline(line.replace(/^-\s+/, ""))}</li>`)
-      .join("")}</ul>`)
+    html.push(renderList(listLines))
     listLines = []
   }
 
@@ -189,9 +192,9 @@ function renderMixedBlock(lines: string[]) {
       flushParagraph()
       flushList()
       html.push(renderImage(image[1], image[2]))
-    } else if (/^-\s+/.test(line.trim())) {
+    } else if (isListLine(line)) {
       flushParagraph()
-      listLines.push(line.trim())
+      listLines.push(line)
     } else {
       flushList()
       paragraphLines.push(line)
@@ -213,6 +216,88 @@ function renderParagraph(lines: string[]) {
 
 function renderCodeBlock(text: string) {
   return `<pre><code>${escapeHtml(text)}</code></pre>`
+}
+
+function renderList(lines: string[]) {
+  const root: ListNode = {
+    depth: -1,
+    ordered: false,
+    content: "",
+    children: [],
+  }
+  const stack: ListNode[] = [root]
+
+  for (const line of lines) {
+    const item = parseListLine(line)
+
+    if (!item) {
+      continue
+    }
+
+    while (stack.length > 1 && item.depth <= stack[stack.length - 1].depth) {
+      stack.pop()
+    }
+
+    const node: ListNode = {
+      depth: item.depth,
+      ordered: item.ordered,
+      content: item.content,
+      children: [],
+    }
+
+    stack[stack.length - 1].children.push(node)
+    stack.push(node)
+  }
+
+  return renderListGroup(root.children)
+}
+
+function renderListGroup(nodes: ListNode[]) {
+  if (nodes.length === 0) {
+    return ""
+  }
+
+  const html: string[] = []
+  let index = 0
+
+  while (index < nodes.length) {
+    const ordered = nodes[index].ordered
+    const tag = ordered ? "ol" : "ul"
+    const items: string[] = []
+
+    while (index < nodes.length && nodes[index].ordered === ordered) {
+      const node = nodes[index]
+      const childHtml = renderListGroup(node.children)
+      items.push(`<li>${renderInline(node.content)}${childHtml}</li>`)
+      index += 1
+    }
+
+    html.push(`<${tag}>${items.join("")}</${tag}>`)
+  }
+
+  return html.join("")
+}
+
+function isListBlock(lines: string[]) {
+  return lines.every((line) => isListLine(line))
+}
+
+function isListLine(line: string) {
+  return parseListLine(line) !== null
+}
+
+function parseListLine(line: string) {
+  const match = line.match(/^(\s*)([-*]|\d+\.)\s+(.+)$/)
+
+  if (!match) {
+    return null
+  }
+
+  return {
+    depth: Math.floor(match[1].replace(/\t/g, "  ").length / 2),
+    ordered: /\d+\./.test(match[2]),
+    content: match[3],
+  }
 }
 
 function extractBlocks(markdown: string) {

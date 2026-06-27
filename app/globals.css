@@ -982,14 +982,33 @@ p {
   font-size: 22px;
 }
 
-.markdown-body ul {
+.markdown-body ul,
+.markdown-body ol {
   color: var(--muted);
   margin: 0 0 24px;
-  padding-left: 1.2em;
+  padding-left: 1.5em;
+}
+
+.markdown-body ul {
+  list-style: disc;
+}
+
+.markdown-body ol {
+  list-style: decimal;
+}
+
+.markdown-body li {
+  padding-left: 0.2em;
 }
 
 .markdown-body li + li {
   margin-top: 8px;
+}
+
+.markdown-body li > ul,
+.markdown-body li > ol {
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .markdown-body figure {
