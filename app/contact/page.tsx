@@ -1,3 +1,5 @@
+import { KevinZMark } from "@/components/KevinZMark"
+
 export default function Contact() {
   return (
     <main className="page contact-page">
@@ -11,6 +13,7 @@ export default function Contact() {
         </div>
 
         <div className="contact-card">
+          <KevinZMark className="contact-card-mark" />
           <span>Email</span>
           <a className="email-link" href="mailto:kevinzhang119@163.com">
             kevinzhang119@163.com

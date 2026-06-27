@@ -1,6 +1,5 @@
-import Link from "next/link"
-
 import { getAllWriting } from "@/lib/writing"
+import { WritingList } from "./WritingList"
 
 export default function WritingPage() {
   const posts = getAllWriting()
@@ -13,28 +12,7 @@ export default function WritingPage() {
         这里记录产品、市场、职业与 AI 的长期思考。每篇文章都来自具体问题，也会回到可复用的方法。
       </p>
 
-      <div className="timeline">
-        {posts.map((post) => (
-          <Link
-            className="writing-card"
-            href={`/writing/${post.slug}`}
-            key={post.slug}
-          >
-            <article>
-              <time>{post.date}</time>
-              <h2>{post.title}</h2>
-              <p>{post.description}</p>
-              <div className="tag-row">
-                {post.tags.map((tag) => (
-                  <span className="tag" key={tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          </Link>
-        ))}
-      </div>
+      <WritingList posts={posts} />
     </main>
   )
 }
