@@ -121,9 +121,9 @@ function renderBlock(block: string) {
     return "<hr />"
   }
 
-  const image = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/)
+  const image = block.match(imagePattern)
   if (image) {
-    return `<figure><img alt="${escapeAttribute(image[1])}" src="${escapeAttribute(image[2])}" /><figcaption>${renderInline(image[1])}</figcaption></figure>`
+    return renderImage(image[1], image[2])
   }
 
   const heading = block.match(/^(#{2,3})\s+(.+)$/)
@@ -133,13 +133,77 @@ function renderBlock(block: string) {
   }
 
   const lines = block.split("\n")
+  if (lines.some((line) => imagePattern.test(line.trim()))) {
+    return renderMixedBlock(lines)
+  }
+
   if (lines.every((line) => /^-\s+/.test(line.trim()))) {
     return `<ul>${lines
       .map((line) => `<li>${renderInline(line.replace(/^-\s+/, ""))}</li>`)
       .join("")}</ul>`
   }
 
-  return `<p>${renderInline(lines.join("<br />"))}</p>`
+  if (lines.some((line) => /^-\s+/.test(line.trim()))) {
+    return renderMixedBlock(lines)
+  }
+
+  return renderParagraph(lines)
+}
+
+const imagePattern = /^!\[([^\]]*)\]\(([^)]+)\)$/
+
+function renderMixedBlock(lines: string[]) {
+  const html: string[] = []
+  let paragraphLines: string[] = []
+  let listLines: string[] = []
+
+  function flushParagraph() {
+    if (paragraphLines.length === 0) {
+      return
+    }
+
+    html.push(renderParagraph(paragraphLines))
+    paragraphLines = []
+  }
+
+  function flushList() {
+    if (listLines.length === 0) {
+      return
+    }
+
+    html.push(`<ul>${listLines
+      .map((line) => `<li>${renderInline(line.replace(/^-\s+/, ""))}</li>`)
+      .join("")}</ul>`)
+    listLines = []
+  }
+
+  for (const line of lines) {
+    const image = line.trim().match(imagePattern)
+
+    if (image) {
+      flushParagraph()
+      flushList()
+      html.push(renderImage(image[1], image[2]))
+    } else if (/^-\s+/.test(line.trim())) {
+      flushParagraph()
+      listLines.push(line.trim())
+    } else {
+      flushList()
+      paragraphLines.push(line)
+    }
+  }
+
+  flushParagraph()
+  flushList()
+  return html.join("")
+}
+
+function renderImage(alt: string, src: string) {
+  return `<figure><img alt="${escapeAttribute(alt)}" src="${escapeAttribute(src)}" /><figcaption>${renderInline(alt)}</figcaption></figure>`
+}
+
+function renderParagraph(lines: string[]) {
+  return `<p>${lines.map((line) => renderInline(line)).join("<br />")}</p>`
 }
 
 function renderInline(text: string) {
