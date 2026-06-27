@@ -107,7 +107,7 @@ function getFirstParagraph(content: string) {
 }
 
 function markdownToHtml(markdown: string) {
-  const blocks = markdown.split(/\n\s*\n/)
+  const blocks = extractBlocks(markdown)
 
   return blocks
     .map((block) => block.trim())
@@ -119,6 +119,11 @@ function markdownToHtml(markdown: string) {
 function renderBlock(block: string) {
   if (/^---+$/.test(block)) {
     return "<hr />"
+  }
+
+  const codeFence = block.match(/^```([\w-]*)\n([\s\S]*?)\n```$/)
+  if (codeFence) {
+    return renderCodeBlock(codeFence[2])
   }
 
   const image = block.match(imagePattern)
@@ -204,6 +209,45 @@ function renderImage(alt: string, src: string) {
 
 function renderParagraph(lines: string[]) {
   return `<p>${lines.map((line) => renderInline(line)).join("<br />")}</p>`
+}
+
+function renderCodeBlock(text: string) {
+  return `<pre><code>${escapeHtml(text)}</code></pre>`
+}
+
+function extractBlocks(markdown: string) {
+  const blocks: string[] = []
+  let current: string[] = []
+  let inCodeFence = false
+
+  for (const line of markdown.split("\n")) {
+    if (line.startsWith("```")) {
+      current.push(line)
+      inCodeFence = !inCodeFence
+
+      if (!inCodeFence) {
+        blocks.push(current.join("\n"))
+        current = []
+      }
+      continue
+    }
+
+    if (!inCodeFence && line.trim() === "") {
+      if (current.length > 0) {
+        blocks.push(current.join("\n"))
+        current = []
+      }
+      continue
+    }
+
+    current.push(line)
+  }
+
+  if (current.length > 0) {
+    blocks.push(current.join("\n"))
+  }
+
+  return blocks
 }
 
 function renderInline(text: string) {
