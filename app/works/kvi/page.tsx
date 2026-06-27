@@ -30,6 +30,20 @@ const principles = [
   },
 ]
 
+const typeScale = [
+  ["Display", "封面主标题", "96-120"],
+  ["Headline", "章节标题", "48-72"],
+  ["Subtitle", "卡片标题", "28-32"],
+  ["Body", "正文叙事", "18-22"],
+  ["Caption", "辅助信息", "13-15"],
+]
+
+const chartBars = [
+  ["灰阶", "85%"],
+  ["主色", "10%"],
+  ["强调", "5%"],
+]
+
 export default function KviPage() {
   const markdown = readDoc(kviDoc)
 
@@ -38,16 +52,65 @@ export default function KviPage() {
       <p className="section-kicker">KVI</p>
       <h1>VI 视觉风格系统</h1>
       <p className="page-lede">
-        这套视觉系统把 KevinZ 的页面约束成一组可维护的规则：灰阶为基，暖色作标点，视觉服务内容。
+        这套视觉系统把网页、HTML PPT 和报告页面约束成一组可维护的规则：灰阶为基，暖色作标点，视觉服务内容。
       </p>
 
       <section className="kvi-showcase" aria-label="KVI 视觉样张">
         <div className="kvi-hero-card">
-          <span>KVI / KevinZ Visual Identity</span>
+          <span>KVI / Visual Identity System</span>
           <h2>少量规则，让页面保持一致</h2>
           <p>
             设计不是不断添加，而是把不必要的东西删掉。留下来的颜色、间距、材质和层级，都要帮助读者更快理解内容。
           </p>
+        </div>
+
+        <div className="kvi-system-grid">
+          <article className="kvi-color-card">
+            <span>Color</span>
+            <h3>灰阶是画布，颜色是标点</h3>
+            <div className="kvi-swatch-row" aria-label="色彩样张">
+              <i style={{ background: "#fafafa" }} />
+              <i style={{ background: "#f5f5f5" }} />
+              <i style={{ background: "#e0e0e0" }} />
+              <i style={{ background: "#222222" }} />
+              <i style={{ background: "#c4622e" }} />
+            </div>
+            <div className="kvi-ratio-bars">
+              {chartBars.map(([label, value]) => (
+                <div key={label}>
+                  <strong>{label}</strong>
+                  <span>{value}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="kvi-type-card">
+            <span>Typography</span>
+            <h3>五级字号，三档字重</h3>
+            <div>
+              {typeScale.map(([level, use, size]) => (
+                <p className={`kvi-type-row kvi-type-${level.toLowerCase()}`} key={level}>
+                  <strong>{level}</strong>
+                  <em>{use}</em>
+                  <span>{size}px</span>
+                </p>
+              ))}
+            </div>
+          </article>
+
+          <article className="kvi-chart-card">
+            <span>Chart</span>
+            <h3>图表标题写结论</h3>
+            <div className="kvi-mini-chart" aria-hidden="true">
+              <i style={{ height: "38%" }} />
+              <i style={{ height: "52%" }} />
+              <i style={{ height: "46%" }} />
+              <i style={{ height: "72%" }} />
+              <i className="is-accent" style={{ height: "88%" }} />
+            </div>
+            <p>时序一致性成为关键差异</p>
+          </article>
         </div>
 
         <div className="kvi-principles">
@@ -73,4 +136,3 @@ export default function KviPage() {
     </main>
   )
 }
-
