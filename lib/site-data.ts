@@ -10,13 +10,14 @@ export const navItems = [
 export const homeCopy = {
   zh: {
     eyebrow: "Personal Knowledge System",
-    title: "KevinZ",
+    title: "Kevin ZHANG",
+    alias: "KevinZ 是 Kevin Zhang 的个人知识系统标识，也是一组持续整理的经历、作品和方法。",
     intro:
-      "一条从技术底层进入产品定义、GTM、全球市场和AI硬件的路径。这里记录的不是职位清单，而是经历如何沉淀成判断、方法和作品。",
+      "一条从工程底层进入产品定义、GTM、全球市场和AI硬件的路径。这里记录的不是职位清单，而是产品判断如何在研发、市场、渠道、价格和供应链之间成形。",
     identity:
       "Kevin的经验横跨芯片、手机、机器人、海外市场和创业实践。技术背景带来边界意识，商业现场训练了对价格、渠道、节奏和组织协同的敏感度。",
     capability:
-      "核心能力是把市场洞察、用户需求、产品定义、4P、IPMS和上市节奏放在同一张图里处理，让抽象目标转化为团队可以执行的动作。",
+      "核心能力是把生命周期、4P、IPMS和商业计划放在同一张图里处理，让产品从机会识别走向可交付、可销售、可经营。",
     direction:
       "下一阶段的关注点落在消费电子、机器人与AI硬件的交汇处。写作和知识图谱，则用于把长期实践整理成可以复用、也可以继续生长的结构。",
     originTitle: "为什么要有这个网站",
@@ -26,7 +27,8 @@ export const homeCopy = {
   },
   en: {
     eyebrow: "Personal Knowledge System",
-    title: "KevinZ",
+    title: "Kevin ZHANG",
+    alias: "KevinZ is the shorthand identity for Kevin Zhang's personal knowledge system: a living structure of work, writing, and methods.",
     intro:
       "A product path shaped by engineering, GTM, global markets, and AI hardware. This site is not a resume, but a structured record of judgment, methods, and work.",
     identity:
@@ -44,7 +46,9 @@ export const homeCopy = {
 
 export const aboutCopy = {
   zh: {
-    title: "从工程底层到商业现场",
+    title: "从工程到产品成功",
+    intro:
+      "这条路径从芯片和电子工程开始，逐步进入产品定义、全球市场、GTM、企业经营和AI智能硬件。它记录的不是职位变化，而是产品判断如何在技术边界、商业目标和组织协同之间持续迁移。",
     sections: [
       {
         title: "起点：技术边界形成产品判断",
@@ -69,22 +73,24 @@ export const aboutCopy = {
       },
       {
         title: "表达：经验需要被整理成结构",
-        period: "2022-2024",
+        period: "2022-2026",
         tags: ["个人著作", "企业管理", "企业战略"],
         body:
-          "写作不是为了包装履历，而是把真实经验整理成别人也能理解和使用的结构。《消费电子产品全生命周期管理实践》关注产品和商业的系统方法，《职场何须懂》则把成长、协作、发展路径和心性问题放在同一个框架里讨论。",
+          "写作不是为了包装履历，而是把真实经验整理成别人也能理解和使用的结构。《消费电子产品全生命周期管理实践》把产品生命周期、4P和商业成功放在同一个框架里，《职场何须懂》则讨论成长、协作、发展路径和心性问题。",
       },
       {
-        title: "现在：面向AI硬件的新一轮产品定义",
-        period: "2026-迄今",
-        tags: ["产品管理", "产品经理", "商业成功"],
+        title: "现在：AI智能硬件产品拓展和生命周期管理",
+        period: "2026-至今",
+        tags: ["产品管理", "产品经理", "商业成功", "AI智能硬件"],
         body:
           "当 AI 进入硬件，产品经理需要重新理解体验、数据、算法、供应链与商业模式之间的关系。过去十多年在消费电子里形成的能力，正在迁移到新的产品形态里。",
       },
     ],
   },
   en: {
-    title: "From engineering to business, turning complexity into structure",
+    title: "From engineering to product success",
+    intro:
+      "This path starts from chips and electronic engineering, then moves through product definition, global markets, GTM, business management, and AI hardware. It is less about job titles and more about how product judgment travels across technical boundaries, business goals, and organizational coordination.",
     sections: [
       {
         title: "A technical beginning",
@@ -109,7 +115,7 @@ export const aboutCopy = {
       },
       {
         title: "A habit of writing",
-        period: "2022-2024",
+        period: "2022-2026",
         tags: ["Books", "Management", "Strategy"],
         body:
           "Writing helps me turn experience into reusable knowledge, from consumer electronics lifecycle management to practical frameworks for career growth.",
@@ -127,32 +133,11 @@ export const aboutCopy = {
 
 export const works = [
   {
-    title: "消费电子产品全生命周期管理实践",
-    type: "Book",
-    year: "2026",
-    description:
-      "以产品生命周期和4P为主线，系统整理消费电子产品从规划、开发到上市、销售和运营的关键方法。",
-  },
-  {
     title: "职场何须懂",
     type: "Book",
     year: "2026",
     description:
       "面向职场成长的结构化方法论，把个人成长、协作关系、多元发展和心性问题放在同一框架中讨论。",
-  },
-  {
-    title: "家庭泳池清洁机器人产品线",
-    type: "Hardware",
-    year: "2024",
-    description:
-      "围绕家庭泳池清洁机器人进行产品线组合、生命周期管理和商业化推进。",
-  },
-  {
-    title: "扫地机器人 GTM 体系",
-    type: "Hardware",
-    year: "2022",
-    description:
-      "围绕扫地机器人品类进行产品组合、上市节奏、市场管理和4P协同。",
   },
   {
     title: "AI Context Prompt",
@@ -178,10 +163,46 @@ export const works = [
     href: "/works/kvi",
   },
   {
+    title: "家庭泳池清洁机器人产品线",
+    type: "Product",
+    year: "2024",
+    description:
+      "围绕家庭泳池清洁机器人进行产品线组合、生命周期管理和商业化推进。",
+  },
+  {
     title: "产品与职业思考流",
     type: "Newsletter",
-    year: "2026",
+    year: "2024",
     description:
       "持续记录产品定义、商业判断、个人成长和结构化思考的文章集合。",
+  },
+  {
+    title: "消费电子产品全生命周期管理实践",
+    type: "Book",
+    year: "2023",
+    description:
+      "以产品生命周期和4P为主线，系统整理消费电子产品从规划、开发到上市、销售和运营的关键方法。",
+    href: "/works/consumer-electronics-lifecycle",
+  },
+  {
+    title: "扫地机器人 GTM 体系",
+    type: "Go-to-Market",
+    year: "2023",
+    description:
+      "围绕扫地机器人品类进行产品组合、上市节奏、市场管理和4P协同。",
+  },
+  {
+    title: "华为手机IPD和IPMS流程",
+    type: "Go-to-Market",
+    year: "2016",
+    description:
+      "制定产品、渠道、营销、服务的整合策略并实施，带领所辖业务板块取得销售成功。",
+  },
+  {
+    title: "华为终端芯片Hi351X系列的产品设计",
+    type: "Hardware",
+    year: "2013",
+    description:
+      "参与海思明星产品 Hi351X 的规划与开发，相关芯片占据 80%以上市场份额。",
   },
 ]

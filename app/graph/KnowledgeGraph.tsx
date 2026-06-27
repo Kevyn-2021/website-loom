@@ -191,9 +191,9 @@ export function KnowledgeGraph({ graph }: KnowledgeGraphProps) {
     <section className="knowledge-explorer" aria-label="KevinZ 个人知识图谱">
       <div className="graph-heading">
         <p className="section-kicker">Knowledge Graph</p>
-        <h1>经验、方法与作品如何彼此支撑</h1>
+        <h1>知识如何连成结构</h1>
         <p>
-          这张图从 Markdown 文档生成。节点代表细颗粒度的概念，连线表示支撑、迁移、反馈和沉淀关系。
+          把技术、产品、市场、写作与 AI 硬件放在同一张图里，看见经验如何彼此支撑、迁移，并逐渐沉淀成方法。
         </p>
       </div>
 

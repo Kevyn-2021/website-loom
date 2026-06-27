@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { KevinZMark } from "@/components/KevinZMark"
 import { aboutCopy } from "@/lib/site-data"
 
 export default async function About({
@@ -36,7 +37,9 @@ export default async function About({
       <section className="about-hero">
         <div>
           <p className="section-kicker">Profile</p>
+          <KevinZMark className="about-mark" />
           <h1>{copy.title}</h1>
+          <p className="about-hero-intro">{copy.intro}</p>
         </div>
         <div className="about-profile-card" aria-label="个人路径摘要">
           {profileMeta.map(([label, value]) => (

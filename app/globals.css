@@ -79,24 +79,26 @@ a {
 }
 
 .brand-mark {
+  flex: none;
+}
+
+.kz-mark {
   align-items: center;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 252, 0.96), rgba(241, 236, 226, 0.92));
+  background: linear-gradient(145deg, rgba(255, 255, 252, 0.96), rgba(241, 236, 226, 0.92));
   border: 1px solid rgba(36, 34, 31, 0.16);
   border-radius: 8px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
     0 12px 32px rgba(23, 23, 23, 0.08);
-  display: inline-grid;
+  display: inline-flex;
   height: 36px;
-  place-items: center;
+  justify-content: center;
   position: relative;
   width: 36px;
 }
 
-.brand-mark::after {
+.kz-mark-thread {
   background: rgba(196, 98, 46, 0.72);
-  content: "";
   height: 1px;
   left: 8px;
   position: absolute;
@@ -105,21 +107,21 @@ a {
   width: 20px;
 }
 
-.brand-k,
-.brand-z {
+.kz-mark-k,
+.kz-mark-z {
   font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
   font-weight: 800;
   line-height: 1;
   position: absolute;
 }
 
-.brand-k {
+.kz-mark-k {
   font-size: 18px;
   left: 8px;
   top: 7px;
 }
 
-.brand-z {
+.kz-mark-z {
   color: var(--accent);
   font-size: 15px;
   right: 8px;
@@ -127,9 +129,11 @@ a {
 }
 
 .brand-name {
-  display: grid;
-  gap: 1px;
-  line-height: 1;
+  align-items: baseline;
+  display: inline-flex;
+  gap: 5px;
+  line-height: 1.05;
+  white-space: nowrap;
 }
 
 .brand-name span {
@@ -175,17 +179,36 @@ main {
   position: relative;
 }
 
-.hero::before {
-  background:
-    linear-gradient(105deg, transparent 0 42%, rgba(196, 98, 46, 0.2) 42% 43%, transparent 43%),
-    linear-gradient(75deg, transparent 0 52%, rgba(141, 119, 99, 0.14) 52% 53%, transparent 53%),
-    radial-gradient(circle at 62% 44%, rgba(255, 255, 252, 0.86), transparent 26%);
-  content: "";
-  inset: 20px 0 auto auto;
-  height: 220px;
+.hero-mark {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  height: clamp(150px, 18vw, 240px);
+  opacity: 0.18;
   position: absolute;
-  width: min(520px, 70vw);
+  right: 120px;
+  top: 82px;
+  transform: rotate(-10deg);
+  width: clamp(150px, 18vw, 240px);
   z-index: -1;
+}
+
+.hero-mark .kz-mark-k {
+  font-size: clamp(62px, 8vw, 108px);
+  left: 44px;
+  top: 44px;
+}
+
+.hero-mark .kz-mark-z {
+  font-size: clamp(52px, 7vw, 92px);
+  right: 42px;
+  bottom: 44px;
+}
+
+.hero-mark .kz-mark-thread {
+  left: 44px;
+  top: 50%;
+  width: 150px;
 }
 
 .language-row {
@@ -212,11 +235,15 @@ main {
 
 .hero h1,
 .page h1 {
-  font-size: clamp(40px, 7vw, 88px);
+  font-size: clamp(30px, 3.5vw, 48px);
   letter-spacing: 0;
-  line-height: 1.05;
+  line-height: 1.08;
   margin: 0;
   max-width: 900px;
+}
+
+.about-page .about-hero h1 {
+  font-size: clamp(30px, 3.5vw, 48px);
 }
 
 .hero-intro,
@@ -226,6 +253,20 @@ main {
   line-height: 1.8;
   margin: 28px 0 0;
   max-width: 820px;
+}
+
+.hero-alias {
+  background: rgba(255, 255, 252, 0.58);
+  border: 1px solid rgba(226, 218, 203, 0.78);
+  border-radius: 999px;
+  color: var(--accent);
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 24px 0 0;
+  padding: 8px 13px;
+  backdrop-filter: blur(14px);
 }
 
 .origin-panel {
@@ -336,11 +377,19 @@ p {
   max-width: 760px;
 }
 
-.loom-note a,
-.email-link {
-  background: var(--foreground);
+.loom-note a {
+  background: rgba(255, 255, 252, 0.82);
+  border: 1px solid rgba(196, 98, 46, 0.28);
   border-radius: 999px;
-  color: var(--background);
+  color: var(--accent);
+  display: inline-block;
+  font-weight: 700;
+  padding: 12px 20px;
+  white-space: nowrap;
+}
+
+.email-link {
+  border-radius: 999px;
   display: inline-block;
   font-weight: 700;
   padding: 12px 20px;
@@ -371,6 +420,47 @@ p {
 
 .works-grid {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.works-filter {
+  align-items: center;
+  background: rgba(255, 255, 252, 0.34);
+  border: 1px solid rgba(226, 218, 203, 0.58);
+  border-radius: 8px;
+  box-shadow: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.works-filter button {
+  background: rgba(255, 255, 252, 0.38);
+  border: 1px solid rgba(226, 218, 203, 0.64);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 650;
+  padding: 7px 11px;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.works-filter button:hover,
+.works-filter button.is-active {
+  background: rgba(196, 98, 46, 0.06);
+  border-color: rgba(196, 98, 46, 0.24);
+  color: var(--accent);
+}
+
+.works-filter button:hover {
+  transform: translateY(-1px);
 }
 
 .work-card {
@@ -455,10 +545,6 @@ p {
 }
 
 .graph-heading h1 {
-  font-size: clamp(34px, 4.8vw, 66px);
-  letter-spacing: 0;
-  line-height: 1.08;
-  margin: 0;
   text-wrap: balance;
 }
 
@@ -764,12 +850,147 @@ p {
   max-width: 820px;
 }
 
+.writing-card {
+  color: inherit;
+  display: block;
+}
+
 .timeline article {
   padding: 24px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .timeline h2 {
   margin-top: 10px;
+}
+
+.timeline .writing-card:hover article {
+  border-color: rgba(196, 98, 46, 0.34);
+  box-shadow: 0 24px 72px rgba(23, 23, 23, 0.09);
+  transform: translateY(-2px);
+}
+
+.timeline .tag-row {
+  justify-content: flex-start;
+  margin-top: 18px;
+}
+
+.writing-detail-page {
+  max-width: 900px;
+}
+
+.back-link {
+  border: 1px solid rgba(196, 98, 46, 0.28);
+  border-radius: 999px;
+  color: var(--accent);
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding: 9px 13px;
+}
+
+.writing-detail {
+  background: rgba(255, 255, 252, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 70px rgba(23, 23, 23, 0.06);
+  padding: clamp(28px, 5vw, 54px);
+  backdrop-filter: blur(18px);
+}
+
+.writing-detail-heading {
+  border-bottom: 1px solid rgba(226, 218, 203, 0.9);
+  margin-bottom: 34px;
+  padding-bottom: 26px;
+}
+
+.writing-detail-heading time {
+  color: var(--accent-2);
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.writing-detail-heading p:not(.section-kicker) {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.75;
+  margin: 22px 0 0;
+}
+
+.writing-detail-heading .tag-row {
+  justify-content: flex-start;
+  margin-top: 22px;
+}
+
+.markdown-body {
+  color: var(--foreground);
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.markdown-body p {
+  margin: 0 0 24px;
+}
+
+.markdown-body h2,
+.markdown-body h3 {
+  margin: 42px 0 16px;
+}
+
+.markdown-body h2 {
+  font-size: 26px;
+}
+
+.markdown-body h3 {
+  font-size: 22px;
+}
+
+.markdown-body ul {
+  color: var(--muted);
+  margin: 0 0 24px;
+  padding-left: 1.2em;
+}
+
+.markdown-body li + li {
+  margin-top: 8px;
+}
+
+.markdown-body figure {
+  margin: 34px 0;
+}
+
+.markdown-body img {
+  background: rgba(255, 255, 252, 0.72);
+  border: 1px solid rgba(226, 218, 203, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 18px 60px rgba(23, 23, 23, 0.07);
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.markdown-body figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.markdown-body strong {
+  color: var(--foreground);
+}
+
+.markdown-body hr {
+  border: 0;
+  border-top: 1px solid rgba(226, 218, 203, 0.95);
+  margin: 32px 0;
 }
 
 .about-page {
@@ -802,17 +1023,44 @@ p {
   position: relative;
 }
 
-.about-hero > div:first-child::after {
-  background:
-    linear-gradient(105deg, transparent 0 44%, rgba(196, 98, 46, 0.18) 44% 45%, transparent 45%),
-    linear-gradient(75deg, transparent 0 56%, rgba(141, 119, 99, 0.14) 56% 57%, transparent 57%);
-  content: "";
+.about-mark {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   height: 220px;
+  opacity: 0.12;
   position: absolute;
   right: 44px;
   top: 42px;
+  transform: rotate(-10deg);
   width: 220px;
   z-index: -1;
+}
+
+.about-mark .kz-mark-k {
+  font-size: 94px;
+  left: 42px;
+  top: 42px;
+}
+
+.about-mark .kz-mark-z {
+  font-size: 78px;
+  right: 42px;
+  bottom: 42px;
+}
+
+.about-mark .kz-mark-thread {
+  left: 42px;
+  top: 50%;
+  width: 140px;
+}
+
+.about-hero-intro {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.75;
+  margin: 34px 0 0;
+  max-width: 760px;
 }
 
 .about-profile-card {
@@ -963,9 +1211,10 @@ p {
 }
 
 .email-link {
-  background: var(--foreground);
+  background: rgba(255, 255, 252, 0.82);
+  border: 1px solid rgba(196, 98, 46, 0.28);
   border-radius: 999px;
-  color: var(--background);
+  color: var(--accent);
   display: inline-block;
   font-weight: 700;
   justify-self: start;
@@ -975,6 +1224,167 @@ p {
 
 .work-detail-page {
   max-width: 1180px;
+}
+
+.book-page {
+  max-width: 1180px;
+}
+
+.book-hero {
+  align-items: stretch;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.55fr);
+}
+
+.book-copy,
+.book-cover-card,
+.book-stats article,
+.book-section,
+.book-chapters article,
+.book-review-grid blockquote {
+  background: rgba(255, 255, 252, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 70px rgba(23, 23, 23, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.book-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 460px;
+  padding: clamp(28px, 5vw, 56px);
+}
+
+.book-copy h1 {
+  font-size: clamp(30px, 3.5vw, 48px);
+}
+
+.book-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.book-actions a {
+  background: var(--foreground);
+  border: 1px solid var(--foreground);
+  border-radius: 999px;
+  color: var(--background);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 11px 16px;
+}
+
+.book-actions a + a {
+  background: rgba(255, 255, 252, 0.68);
+  border-color: rgba(196, 98, 46, 0.28);
+  color: var(--accent);
+}
+
+.book-cover-card {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 460px;
+  overflow: hidden;
+  padding: 26px;
+}
+
+.book-cover-card img {
+  border-radius: 8px;
+  box-shadow: 0 26px 80px rgba(23, 23, 23, 0.18);
+  height: auto;
+  max-height: 560px;
+  width: min(100%, 330px);
+}
+
+.book-stats {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.book-stats article {
+  display: grid;
+  gap: 8px;
+  min-height: 132px;
+  padding: 24px;
+}
+
+.book-stats strong {
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+}
+
+.book-stats span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.book-section {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 280px minmax(0, 1fr);
+  margin-top: 18px;
+  padding: 28px;
+}
+
+.book-section p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.book-chapters {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.book-chapters article {
+  min-height: 232px;
+  padding: 22px;
+}
+
+.book-chapters span {
+  color: var(--accent);
+  display: block;
+  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.book-chapters h2 {
+  font-size: 21px;
+}
+
+.book-chapters p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.book-reader-notes {
+  align-items: start;
+}
+
+.book-review-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.book-review-grid blockquote {
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
+  padding: 18px 20px;
 }
 
 .kvi-showcase {
@@ -1380,7 +1790,7 @@ p {
 
   .hero h1,
   .page h1 {
-    font-size: 44px;
+    font-size: 32px;
   }
 
   .hero-intro,
@@ -1410,7 +1820,7 @@ p {
   }
 
   .graph-heading h1 {
-    font-size: 38px;
+    font-size: 32px;
   }
 
   .graph-flow-shell {
@@ -1456,6 +1866,10 @@ p {
 
   .about-hero,
   .about-narrative section,
+  .book-hero,
+  .book-section,
+  .book-stats,
+  .book-chapters,
   .contact-panel,
   .kvi-showcase-top,
   .kvi-principles,
@@ -1474,6 +1888,15 @@ p {
 
   .about-narrative section {
     gap: 12px;
+  }
+
+  .book-copy,
+  .book-cover-card {
+    min-height: auto;
+  }
+
+  .book-cover-card img {
+    width: min(100%, 260px);
   }
 
   .code-section-heading {

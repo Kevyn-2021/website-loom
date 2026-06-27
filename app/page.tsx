@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { KevinZMark } from "@/components/KevinZMark"
 import { homeCopy } from "@/lib/site-data"
 
 export default async function Home({
@@ -21,7 +22,9 @@ export default async function Home({
             {lang === "zh" ? "English" : "中文"}
           </Link>
         </div>
+        <KevinZMark className="hero-mark" />
         <h1>{copy.title}</h1>
+        <p className="hero-alias">{copy.alias}</p>
         <p className="hero-intro">{copy.intro}</p>
       </section>
 
@@ -57,7 +60,7 @@ export default async function Home({
       </section>
 
       <section className="loom-note">
-        <p>如果需要一条更完整的路径，可以继续阅读经历叙事，或直接从作品和知识图谱进入。</p>
+        <p>想了解这条路径如何展开，可以从经历叙事开始，也可以直接进入作品与知识图谱。</p>
         <Link href="/about">继续了解</Link>
       </section>
     </main>

@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { getAllWriting } from "@/lib/writing"
 
 export default function WritingPage() {
@@ -8,24 +10,29 @@ export default function WritingPage() {
       <p className="section-kicker">Writing</p>
       <h1>写作</h1>
       <p className="page-lede">
-        这里保留时间序的思考流。内容以手写为准，不做 AI 加工式包装。
+        这里记录产品、市场、职业与 AI 的长期思考。每篇文章都来自具体问题，也会回到可复用的方法。
       </p>
 
       <div className="timeline">
         {posts.map((post) => (
-          <article key={post.slug}>
-            <time>{new Date(post.meta.date).toLocaleDateString("zh-CN")}</time>
-            <h2>{post.meta.title}</h2>
-            {Array.isArray(post.meta.tags) ? (
+          <Link
+            className="writing-card"
+            href={`/writing/${post.slug}`}
+            key={post.slug}
+          >
+            <article>
+              <time>{post.date}</time>
+              <h2>{post.title}</h2>
+              <p>{post.description}</p>
               <div className="tag-row">
-                {post.meta.tags.map((tag: string) => (
+                {post.tags.map((tag) => (
                   <span className="tag" key={tag}>
                     {tag}
                   </span>
                 ))}
               </div>
-            ) : null}
-          </article>
+            </article>
+          </Link>
         ))}
       </div>
     </main>

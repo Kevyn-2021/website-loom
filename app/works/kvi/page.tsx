@@ -1,7 +1,7 @@
 import { readDoc } from "@/lib/docs"
 import { MarkdownActions } from "@/components/MarkdownActions"
 
-const kviDoc = "2026-06-27_KVI_视觉风格系统.md"
+const kviDoc = "KVI-视觉风格系统-2026-06-27.md"
 
 const principles = [
   {

@@ -1,7 +1,7 @@
 import { readDoc } from "@/lib/docs"
 import { MarkdownActions } from "@/components/MarkdownActions"
 
-const contextDoc = "2026-06-27_KevinZ_个人上下文_for_AI.md"
+const contextDoc = "AIContext-KevinZ个人上下文-2026-06-27.md"
 
 export default function AiContextPage() {
   const markdown = readDoc(contextDoc)
