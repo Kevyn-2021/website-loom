@@ -1,4 +1,5 @@
 import { readDoc } from "@/lib/docs"
+import { MarkdownActions } from "@/components/MarkdownActions"
 
 const kviDoc = "2026-06-27_KVI_视觉风格系统.md"
 
@@ -52,16 +53,37 @@ export default function KviPage() {
       <p className="section-kicker">KVI</p>
       <h1>VI 视觉风格系统</h1>
       <p className="page-lede">
-        这套视觉系统把网页、HTML PPT 和报告页面约束成一组可维护的规则：灰阶为基，暖色作标点，视觉服务内容。
+        这套视觉系统把网页、HTML PPT和报告页面约束成一组可维护的规则：灰阶为基，暖色作标点，视觉服务内容。
       </p>
 
       <section className="kvi-showcase" aria-label="KVI 视觉样张">
-        <div className="kvi-hero-card">
-          <span>KVI / Visual Identity System</span>
-          <h2>少量规则，让页面保持一致</h2>
-          <p>
-            设计不是不断添加，而是把不必要的东西删掉。留下来的颜色、间距、材质和层级，都要帮助读者更快理解内容。
-          </p>
+        <div className="kvi-showcase-top">
+          <div className="kvi-hero-card">
+            <span>KVI / Visual Identity System</span>
+            <h2>少量规则，让页面保持一致</h2>
+            <p>
+              设计不是不断添加，而是把不必要的东西删掉。留下来的颜色、间距、材质和层级，都要帮助读者更快理解内容。
+            </p>
+          </div>
+
+          <div className="kvi-structure-card">
+            <span>Structure</span>
+            <h3>先建立秩序，再制造重点</h3>
+            <div>
+              <p>
+                <strong>1</strong>
+                <em>主叙事</em>
+              </p>
+              <p>
+                <strong>3</strong>
+                <em>支撑模块</em>
+              </p>
+              <p>
+                <strong>5</strong>
+                <em>原则锚点</em>
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="kvi-system-grid">
@@ -126,8 +148,11 @@ export default function KviPage() {
 
       <section className="code-section" aria-label="KVI Markdown">
         <div className="code-section-heading">
-          <p className="section-kicker">Markdown Source</p>
-          <h2>可维护的视觉规则</h2>
+          <div>
+            <p className="section-kicker">Markdown Source</p>
+            <h2>可维护的视觉规则</h2>
+          </div>
+          <MarkdownActions content={markdown} filename={kviDoc} />
         </div>
         <pre>
           <code>{markdown}</code>

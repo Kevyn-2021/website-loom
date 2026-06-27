@@ -13,8 +13,14 @@ export default function RootLayout({
       <body>
         <nav className="site-nav" aria-label="主导航">
           <Link className="brand" href="/">
-            <span>Kevin</span>
-            <strong>Z</strong>
+            <span className="brand-mark" aria-hidden="true">
+              <span className="brand-k">K</span>
+              <span className="brand-z">Z</span>
+            </span>
+            <span className="brand-name">
+              <span>Kevin</span>
+              <strong>Zhang</strong>
+            </span>
           </Link>
           <div className="nav-links">
             {navItems.map((item) => (

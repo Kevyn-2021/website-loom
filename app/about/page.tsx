@@ -11,21 +11,51 @@ export default async function About({
   const lang = params?.lang === "en" ? "en" : "zh"
   const copy = aboutCopy[lang]
   const nextLangHref = lang === "zh" ? "/about?lang=en" : "/about"
+  const profileMeta =
+    lang === "zh"
+      ? [
+          ["起点", "工程与芯片"],
+          ["路径", "产品 / GTM / 销售"],
+          ["方向", "AI硬件与个人知识系统"],
+        ]
+      : [
+          ["Start", "Engineering and chips"],
+          ["Path", "Product / GTM / Sales"],
+          ["Focus", "AI hardware and knowledge systems"],
+        ]
 
   return (
-    <main className="page">
+    <main className="page about-page">
       <div className="language-row">
         <span>About</span>
         <Link className="language-toggle" href={nextLangHref}>
           {lang === "zh" ? "English" : "中文"}
         </Link>
       </div>
-      <h1>{copy.title}</h1>
-      <div className="narrative">
-        {copy.sections.map((section) => (
+
+      <section className="about-hero">
+        <div>
+          <p className="section-kicker">Profile</p>
+          <h1>{copy.title}</h1>
+        </div>
+        <div className="about-profile-card" aria-label="个人路径摘要">
+          {profileMeta.map(([label, value]) => (
+            <p key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <div className="about-narrative">
+        {copy.sections.map((section, index) => (
           <section key={section.title}>
-            <h2>{section.title}</h2>
-            <p>{section.body}</p>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+            </div>
           </section>
         ))}
       </div>

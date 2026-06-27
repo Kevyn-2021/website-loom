@@ -1,4 +1,5 @@
 import { readDoc } from "@/lib/docs"
+import { MarkdownActions } from "@/components/MarkdownActions"
 
 const contextDoc = "2026-06-27_KevinZ_个人上下文_for_AI.md"
 
@@ -17,7 +18,7 @@ export default function AiContextPage() {
         <article>
           <span>01</span>
           <h2>快速熟悉背景</h2>
-          <p>让模型知道 Kevin 的职业主线、关键经历和核心能力。</p>
+          <p>让模型知道Kevin的职业主线、关键经历和核心能力。</p>
         </article>
         <article>
           <span>02</span>
@@ -33,8 +34,11 @@ export default function AiContextPage() {
 
       <section className="code-section" aria-label="AI Context Markdown">
         <div className="code-section-heading">
-          <p className="section-kicker">Markdown Source</p>
-          <h2>给大模型的完整上下文</h2>
+          <div>
+            <p className="section-kicker">Markdown Source</p>
+            <h2>给大模型的完整上下文</h2>
+          </div>
+          <MarkdownActions content={markdown} filename={contextDoc} />
         </div>
         <pre>
           <code>{markdown}</code>
@@ -43,4 +47,3 @@ export default function AiContextPage() {
     </main>
   )
 }
-

@@ -4,11 +4,13 @@ import {
   Background,
   Handle,
   MarkerType,
+  Panel,
   Position,
   ReactFlow,
   type Edge,
   type Node,
   type NodeProps,
+  useReactFlow,
 } from "@xyflow/react"
 import { useMemo, useState } from "react"
 
@@ -69,6 +71,23 @@ function KnowledgeNode({ data }: NodeProps<FlowNode>) {
       <strong>{data.label}</strong>
       <small>{data.note}</small>
     </div>
+  )
+}
+
+function GraphCenterButton({ onCenter }: { onCenter: () => void }) {
+  const { fitView } = useReactFlow()
+
+  const centerGraph = () => {
+    onCenter()
+    fitView({ duration: 520, padding: 0.1 })
+  }
+
+  return (
+    <Panel className="graph-center-panel" position="top-left">
+      <button type="button" onClick={centerGraph}>
+        一键居中
+      </button>
+    </Panel>
   )
 }
 
@@ -197,6 +216,7 @@ export function KnowledgeGraph({ graph }: KnowledgeGraphProps) {
             panOnScroll
             proOptions={{ hideAttribution: true }}
           >
+            <GraphCenterButton onCenter={() => setActiveNodeId(defaultNodeId)} />
             <Background color="rgba(42, 39, 34, 0.12)" gap={34} size={1} />
           </ReactFlow>
         </div>
