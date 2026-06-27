@@ -220,27 +220,28 @@ export function KnowledgeGraph({ graph }: KnowledgeGraphProps) {
             <Background color="rgba(42, 39, 34, 0.12)" gap={34} size={1} />
           </ReactFlow>
         </div>
+      </div>
 
-        <aside className="graph-inspector" aria-live="polite">
+      <aside className="graph-inspector" aria-live="polite">
+        <div className="graph-inspector-summary">
           <span>{clusterNames[activeNode.cluster]}</span>
           <h2>{activeNode.label}</h2>
           <p>{activeNode.note}</p>
-          <ul>
-            {activeRelations.map((link) => {
-              const neighborId =
-                link.from === activeNode.id ? link.to : link.from
-              const neighbor = nodeById[neighborId]
+        </div>
+        <ul>
+          {activeRelations.map((link) => {
+            const neighborId = link.from === activeNode.id ? link.to : link.from
+            const neighbor = nodeById[neighborId]
 
-              return (
-                <li key={`${link.from}-${link.to}`}>
-                  <span>{link.relation}</span>
-                  <strong>{neighbor?.label ?? neighborId}</strong>
-                </li>
-              )
-            })}
-          </ul>
-        </aside>
-      </div>
+            return (
+              <li key={`${link.from}-${link.to}`}>
+                <span>{link.relation}</span>
+                <strong>{neighbor?.label ?? neighborId}</strong>
+              </li>
+            )
+          })}
+        </ul>
+      </aside>
     </section>
   )
 }

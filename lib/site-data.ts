@@ -48,26 +48,36 @@ export const aboutCopy = {
     sections: [
       {
         title: "起点：技术边界形成产品判断",
+        period: "2012-2014",
+        tags: ["芯片", "集成电路设计", "IPD流程", "产品经理"],
         body:
           "职业起点在芯片和电子工程。早期参与安防芯片相关模块的规划与开发，留下了一个稳定习惯：商业判断不能脱离技术可行性、产品边界和真实交付。后来从开发侧走向市场侧，这个习惯一直保留下来。",
       },
       {
         title: "转折：全球市场训练执行感",
+        period: "2014-2020",
+        tags: ["IPMS", "Go-to-Market", "商业", "市场", "海外"],
         body:
           "在华为终端的几年里，角色从产品经理延展到GTM和销售，也经历了墨西哥、秘鲁、西班牙、法国等不同市场。不同国家、客户、渠道和组织之间没有统一模板，只有把目标、资源、价格、产品和节奏重新对齐，方案才真正可执行。",
       },
       {
         title: "方法：用生命周期和4P管理复杂性",
+        period: "2020-2026",
+        tags: ["领导力", "产品线管理", "企业管理"],
         body:
           "后来在腾讯、科沃斯和元鼎智能，继续处理不同形态的消费业务：生态合作、扫地机器人、泳池清洁机器人。行业不同，但问题相似：如何定义产品组合，如何判断上市节奏，如何让产品、价格、渠道、营销、财务和供应链形成合力。",
       },
       {
         title: "表达：经验需要被整理成结构",
+        period: "2022-2024",
+        tags: ["个人著作", "企业管理", "企业战略"],
         body:
           "写作不是为了包装履历，而是把真实经验整理成别人也能理解和使用的结构。《消费电子产品全生命周期管理实践》关注产品和商业的系统方法，《职场何须懂》则把成长、协作、发展路径和心性问题放在同一个框架里讨论。",
       },
       {
         title: "现在：面向AI硬件的新一轮产品定义",
+        period: "2026-迄今",
+        tags: ["产品管理", "产品经理", "商业成功"],
         body:
           "当 AI 进入硬件，产品经理需要重新理解体验、数据、算法、供应链与商业模式之间的关系。过去十多年在消费电子里形成的能力，正在迁移到新的产品形态里。",
       },
@@ -78,26 +88,36 @@ export const aboutCopy = {
     sections: [
       {
         title: "A technical beginning",
+        period: "2012-2014",
+        tags: ["Chips", "IC Design", "IPD", "Product"],
         body:
           "My career began with chips and electronic engineering, where product judgment had to respect technical boundaries and real delivery constraints.",
       },
       {
         title: "A global market education",
+        period: "2014-2020",
+        tags: ["IPMS", "GTM", "Business", "Market", "Global"],
         body:
           "At Huawei, I moved through product, GTM, and sales roles across China, Latin America, and Europe, learning how strategy becomes execution in different cultures and channels.",
       },
       {
         title: "A lifecycle method",
+        period: "2020-2026",
+        tags: ["Leadership", "Product Line", "Management"],
         body:
           "Across Tencent, Ecovacs, and YuanDing, I continued to work on consumer businesses where product portfolio, launch rhythm, 4P alignment, and lifecycle management determine commercial outcomes.",
       },
       {
         title: "A habit of writing",
+        period: "2022-2024",
+        tags: ["Books", "Management", "Strategy"],
         body:
           "Writing helps me turn experience into reusable knowledge, from consumer electronics lifecycle management to practical frameworks for career growth.",
       },
       {
         title: "A new frontier",
+        period: "2026-now",
+        tags: ["Product Management", "Product Manager", "Business Success"],
         body:
           "I am now focused on applying this experience to AI hardware, where product definition must connect experience, data, algorithms, supply chain, and business model.",
       },

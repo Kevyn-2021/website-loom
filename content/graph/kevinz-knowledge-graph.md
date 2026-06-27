@@ -27,6 +27,9 @@
 | chip | 芯片 | experience | 20 | 39 | 技术底层 |
 | phone | 手机 | experience | 23 | 52 | 规模化消费电子 |
 | robot | 机器人 | experience | 26 | 65 | 家庭场景 |
+| executive-management | 企业高管 | experience | 41 | 66 | 经营现场 |
+| enterprise-management | 企业管理 | method | 55 | 69 | 组织、财务、经营 |
+| enterprise-strategy | 企业战略 | gtm | 68 | 70 | 战略制定和取舍 |
 | global-market | 全球市场 | experience | 36 | 74 | 中国、拉美、欧洲 |
 | writing | 写作 | output | 46 | 76 | 经验整理 |
 | product-book | 产品书 | output | 56 | 82 | 生命周期方法 |
@@ -55,16 +58,23 @@
 | chip | phone | 产品化 |
 | phone | global-market | 出海 |
 | phone | robot | 品类迁移 |
+| robot | executive-management | 经营升级 |
+| executive-management | enterprise-management | 管理 |
+| executive-management | enterprise-strategy | 制定 |
+| enterprise-management | ipms | 组织协同 |
+| enterprise-strategy | roadmap | 战略落地 |
+| enterprise-strategy | product-definition | 取舍 |
 | robot | ai-hardware | 演进 |
 | global-market | pricing | 竞争反馈 |
 | global-market | channel | 市场反馈 |
 | kevinz | writing | 表达 |
 | writing | product-book | 产品方法 |
 | writing | career-book | 成长方法 |
+| writing | enterprise-management | 经验沉淀 |
+| writing | enterprise-strategy | 结构化 |
 | product-book | market-insight | 复用 |
 | product-book | roadmap | 复用 |
 | career-book | ipms | 协作 |
 | ai-hardware | data-algorithm | 新变量 |
 | data-algorithm | product-definition | 反向约束 |
 | ai-hardware | user-need | 新场景 |
-
