@@ -135,14 +135,14 @@ export const works = [
   {
     title: "KevinZ 个人叙事网站",
     type: "Website",
-    year: "2026.07",
+    year: "2026-07",
     description:
       "把散落经历、作品和思考方式整理成可浏览的个人叙事网站。",
   },
   {
     title: "飞书画板 SVG 指南",
     type: "App",
-    year: "2026.07",
+    year: "2026-07",
     description:
       "为飞书 CLI 的文档、画板与 SVG 导入建立统一规则，确保本地源文件、云端画板和可编辑节点验证保持一致。",
     href: "/works/feishu-cli-svg-guideline",
@@ -150,7 +150,7 @@ export const works = [
   {
     title: "VI 视觉风格系统",
     type: "Website",
-    year: "2026.06",
+    year: "2026-06",
     description:
       "以克制灰阶、玻璃层次和交互知识图谱为核心，为个人网站建立统一的视觉表达方式。",
     href: "/works/kvi",
@@ -158,14 +158,14 @@ export const works = [
   {
     title: "职场何须懂",
     type: "Book",
-    year: "2026.05",
+    year: "2026-05",
     description:
       "面向职场成长的结构化方法论，把个人成长、协作关系、多元发展和心性问题放在同一框架中讨论。",
   },
   {
     title: "AI Context Prompt",
     type: "App",
-    year: "2025.11",
+    year: "2025-11",
     description:
       "用于帮助 AI 理解个人背景、偏好和表达风格的结构化上下文系统。",
     href: "/works/ai-context",
@@ -173,21 +173,21 @@ export const works = [
   {
     title: "家庭泳池清洁机器人产品线",
     type: "Product",
-    year: "2025.02",
+    year: "2025-02",
     description:
       "围绕家庭泳池清洁机器人进行产品线组合、生命周期管理和商业化推进。",
   },
   {
     title: "产品与职业思考流",
     type: "Newsletter",
-    year: "2024.08",
+    year: "2024-08",
     description:
       "持续记录产品定义、商业判断、个人成长和结构化思考的文章集合。",
   },
   {
     title: "消费电子产品全生命周期管理实践",
     type: "Book",
-    year: "2023.10",
+    year: "2023-10",
     description:
       "以产品生命周期和4P为主线，系统整理消费电子产品从规划、开发到上市、销售和运营的关键方法。",
     href: "/works/consumer-electronics-lifecycle",
@@ -195,21 +195,21 @@ export const works = [
   {
     title: "扫地机器人 GTM 体系",
     type: "Go-to-Market",
-    year: "2023.04",
+    year: "2023-04",
     description:
       "围绕扫地机器人品类进行产品组合、上市节奏、市场管理和4P协同。",
   },
   {
     title: "华为手机IPD和IPMS流程",
     type: "Go-to-Market",
-    year: "2016.09",
+    year: "2016-09",
     description:
       "制定产品、渠道、营销、服务的整合策略并实施，带领所辖业务板块取得销售成功。",
   },
   {
     title: "华为终端芯片Hi351X系列的产品设计",
     type: "Hardware",
-    year: "2013.07",
+    year: "2013-07",
     description:
       "参与海思明星产品 Hi351X 的规划与开发，相关芯片占据 80%以上市场份额。",
   },
