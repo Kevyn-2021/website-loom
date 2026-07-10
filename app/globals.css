@@ -1863,6 +1863,405 @@ p {
   margin: 0;
 }
 
+.feishu-demo-board {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 34px;
+}
+
+.feishu-demo-card,
+.feishu-folder-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 252, 0.88), rgba(248, 245, 238, 0.78));
+  border: 1px solid rgba(226, 218, 203, 0.94);
+  border-radius: 8px;
+  box-shadow: 0 18px 70px rgba(23, 23, 23, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.feishu-demo-card {
+  display: grid;
+  gap: 16px;
+  min-height: 430px;
+  padding: 22px;
+}
+
+.feishu-demo-card > span {
+  color: var(--accent);
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.feishu-demo-card h2 {
+  font-size: 24px;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.feishu-demo-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.72;
+  margin: 0;
+}
+
+.feishu-demo-card ul {
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.feishu-demo-card li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.feishu-demo-scene {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.76), transparent 42%),
+    linear-gradient(135deg, rgba(247, 244, 238, 0.94), rgba(240, 235, 226, 0.9));
+  border: 1px solid rgba(226, 218, 203, 0.88);
+  border-radius: 8px;
+  display: grid;
+  gap: 14px;
+  min-height: 170px;
+  padding: 18px;
+}
+
+.feishu-scene-hero {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feishu-scene-hero strong {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.feishu-scene-hero em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 13px;
+}
+
+.feishu-scene-pills {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.feishu-scene-frame {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) 120px;
+}
+
+.feishu-scene-device {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.96), transparent 36%),
+    linear-gradient(180deg, rgba(247, 242, 234, 0.98), rgba(231, 224, 214, 0.98));
+  border: 1px solid rgba(214, 205, 191, 0.92);
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(23, 23, 23, 0.08);
+  height: 112px;
+  justify-self: center;
+  width: 112px;
+}
+
+.feishu-scene-caption {
+  display: grid;
+  gap: 6px;
+}
+
+.feishu-scene-caption b {
+  font-size: 13px;
+}
+
+.feishu-scene-caption span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.feishu-scene-pills i,
+.feishu-scene-nodes i {
+  background: rgba(36, 34, 31, 0.12);
+  border-radius: 999px;
+  display: block;
+}
+
+.feishu-scene-pills i {
+  height: 30px;
+  width: 72px;
+}
+
+.feishu-scene-pills .is-accent,
+.feishu-scene-nodes .is-accent {
+  background: rgba(196, 98, 46, 0.28);
+}
+
+.feishu-scene-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.feishu-scene-grid b,
+.feishu-scene-tags b {
+  align-items: center;
+  background: rgba(255, 255, 252, 0.72);
+  border: 1px solid rgba(226, 218, 203, 0.86);
+  border-radius: 8px;
+  color: var(--foreground);
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.feishu-scene-summary {
+  background: rgba(255, 255, 252, 0.82);
+  border: 1px solid rgba(226, 218, 203, 0.88);
+  border-left: 3px solid rgba(196, 98, 46, 0.34);
+  border-radius: 8px;
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+}
+
+.feishu-scene-summary strong {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.feishu-scene-summary span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.feishu-scene-line {
+  background:
+    linear-gradient(90deg, rgba(196, 98, 46, 0.22), rgba(196, 98, 46, 0.22)) center/100% 1px no-repeat;
+  height: 40px;
+  position: relative;
+}
+
+.feishu-scene-line::before,
+.feishu-scene-line::after {
+  background: rgba(196, 98, 46, 0.28);
+  border-radius: 999px;
+  content: "";
+  height: 8px;
+  position: absolute;
+  top: 16px;
+  width: 8px;
+}
+
+.feishu-scene-line::before {
+  left: 18%;
+}
+
+.feishu-scene-line::after {
+  right: 18%;
+}
+
+.feishu-scene-metrics {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feishu-scene-metrics i {
+  background: rgba(36, 34, 31, 0.1);
+  border-radius: 8px 8px 0 0;
+  display: block;
+  height: 46px;
+}
+
+.feishu-scene-metrics .is-accent {
+  background: rgba(196, 98, 46, 0.28);
+}
+
+.feishu-scene-nodes {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.feishu-scene-nodes i {
+  height: 18px;
+  width: 18px;
+}
+
+.feishu-scene-tags {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feishu-scene-header {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feishu-scene-infograph {
+  align-items: end;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 88px minmax(0, 1fr);
+}
+
+.feishu-scene-donut {
+  background:
+    conic-gradient(
+      rgba(196, 98, 46, 0.32) 0 110deg,
+      rgba(141, 119, 99, 0.18) 110deg 220deg,
+      rgba(36, 34, 31, 0.08) 220deg 360deg
+    );
+  border-radius: 999px;
+  height: 72px;
+  position: relative;
+  width: 72px;
+}
+
+.feishu-scene-donut::after {
+  background: rgba(248, 245, 238, 0.96);
+  border-radius: 999px;
+  content: "";
+  inset: 14px;
+  position: absolute;
+}
+
+.feishu-scene-donut i {
+  background: rgba(196, 98, 46, 0.24);
+  border-radius: 999px;
+  height: 8px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  z-index: 1;
+}
+
+.feishu-scene-bars {
+  align-items: end;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  height: 72px;
+}
+
+.feishu-scene-bars i {
+  background: rgba(36, 34, 31, 0.12);
+  border-radius: 8px 8px 0 0;
+  display: block;
+}
+
+.feishu-scene-bars .is-accent {
+  background: rgba(196, 98, 46, 0.28);
+}
+
+.feishu-scene-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feishu-scene-notes span {
+  background: rgba(255, 255, 252, 0.72);
+  border: 1px solid rgba(226, 218, 203, 0.86);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  padding: 6px 10px;
+}
+
+.feishu-folder-panel {
+  align-items: start;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  margin-top: 34px;
+  padding: 28px;
+}
+
+.feishu-folder-panel p:not(.section-kicker) {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.78;
+  margin: 14px 0 0;
+}
+
+.feishu-folder-map {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.74), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 252, 0.94), rgba(250, 248, 242, 0.94));
+  border: 1px solid rgba(226, 218, 203, 0.94);
+  border-radius: 8px;
+  box-shadow: 0 20px 64px rgba(23, 23, 23, 0.06);
+  display: grid;
+  gap: 18px;
+  min-height: 100%;
+  padding: 22px;
+}
+
+.feishu-folder-root {
+  align-items: center;
+  background: rgba(255, 255, 252, 0.78);
+  border: 1px solid rgba(226, 218, 203, 0.88);
+  border-radius: 999px;
+  color: var(--foreground);
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 700;
+  justify-content: center;
+  justify-self: center;
+  min-height: 42px;
+  min-width: 220px;
+  padding: 0 18px;
+}
+
+.feishu-folder-branches {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.feishu-folder-branches article {
+  background: rgba(255, 255, 252, 0.72);
+  border: 1px solid rgba(226, 218, 203, 0.88);
+  border-radius: 8px;
+  display: grid;
+  gap: 6px;
+  min-height: 90px;
+  padding: 14px;
+}
+
+.feishu-folder-branches strong {
+  font-size: 13px;
+}
+
+.feishu-folder-branches span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .context-preview {
   display: grid;
   gap: 16px;
@@ -2062,6 +2461,8 @@ p {
   .book-stats,
   .book-chapters,
   .contact-panel,
+  .feishu-demo-board,
+  .feishu-folder-panel,
   .kvi-showcase-top,
   .kvi-principles,
   .kvi-system-grid,

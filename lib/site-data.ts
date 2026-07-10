@@ -148,11 +148,12 @@ export const works = [
     href: "/works/ai-context",
   },
   {
-    title: "飞书 CLI 画板 SVG 工作指南",
+    title: "飞书画板 SVG 指南",
     type: "App",
     year: "2026",
     description:
       "为飞书 CLI 的文档、画板与 SVG 导入建立统一规则，确保本地源文件、云端画板和可编辑节点验证保持一致。",
+    href: "/works/feishu-cli-svg-guideline",
   },
   {
     title: "KevinZ 个人叙事网站",
