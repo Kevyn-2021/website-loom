@@ -26,6 +26,10 @@ export default async function Home({
         <h1>{copy.title}</h1>
         <p className="hero-alias">{copy.alias}</p>
         <p className="hero-intro">{copy.intro}</p>
+        <div className="hero-actions">
+          <Link className="primary-action" href="/about">了解这条路径 <span>↗</span></Link>
+          <Link className="text-action" href="/graph">进入知识图谱</Link>
+        </div>
       </section>
 
       <section className="origin-panel" aria-label="网站初衷">
@@ -33,12 +37,7 @@ export default async function Home({
           <p className="section-kicker">Origin</p>
           <h2>{copy.originTitle}</h2>
         </div>
-        <p>{copy.origin}</p>
-        <div className="origin-tags" aria-label="核心隐喻">
-          {copy.originMeta.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </div>
+        <p className="origin-short">{copy.origin}</p>
       </section>
 
       <section className="summary-grid" aria-label="个人摘要">
@@ -46,16 +45,19 @@ export default async function Home({
           <p className="section-kicker">Identity</p>
           <h2>{lang === "zh" ? "经验主线" : "Path"}</h2>
           <p>{copy.identity}</p>
+          <Link href="/about">经历路径 <span>↗</span></Link>
         </article>
         <article>
           <p className="section-kicker">Capability</p>
           <h2>{lang === "zh" ? "方法结构" : "Method"}</h2>
           <p>{copy.capability}</p>
+          <Link href="/graph">知识图谱 <span>↗</span></Link>
         </article>
         <article>
           <p className="section-kicker">Direction</p>
           <h2>{lang === "zh" ? "当前方向" : "Direction"}</h2>
           <p>{copy.direction}</p>
+          <Link href="/works">正在形成的作品 <span>↗</span></Link>
         </article>
       </section>
 

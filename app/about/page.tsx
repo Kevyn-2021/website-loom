@@ -11,6 +11,8 @@ export default async function About({
   const params = await searchParams
   const lang = params?.lang === "en" ? "en" : "zh"
   const copy = aboutCopy[lang]
+  const pathSections = copy.sections
+  const orderedSections = [...copy.sections].reverse()
   const nextLangHref = lang === "zh" ? "/about?lang=en" : "/about"
   const profileMeta =
     lang === "zh"
@@ -51,15 +53,53 @@ export default async function About({
         </div>
       </section>
 
+      <section className="global-section" aria-labelledby="global-title">
+        <div className="world-map">
+          <div className="global-heading">
+          <p className="section-kicker">Global context</p>
+          <h2 id="global-title">在不同市场里，理解产品如何落地</h2>
+          <p>亚洲、美洲、欧洲让我看到：<br />同一个产品，必须经过不同文化、渠道与生活方式的重新翻译。</p>
+          </div>
+          <div className="world-map-visual" role="img" aria-label="Kevin 曾在中国、美国、墨西哥、秘鲁、西班牙和法国常驻或工作">
+          <div className="map-grid" aria-hidden="true" />
+          <span className="map-caption">6 markets · product / GTM / sales</span>
+          </div>
+          <div className="market-legend-panel" aria-label="经历过的国家和地区">
+            <div className="market-legend">
+              {["中国", "美国", "墨西哥", "秘鲁", "西班牙", "法国"].map((country, index) => (
+                <span key={country} className={`market-item market-item-${index + 1}`}><i />{country}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-path-card" aria-labelledby="path-title">
+        <div className="about-path-heading">
+          <p className="section-kicker">Path</p>
+          <h2 id="path-title">五个节点，一条持续迁移的产品路径</h2>
+        </div>
+        <div className="about-path-line">
+          {pathSections.map((section, index) => (
+            <div className={`about-path-node path-node-${index + 1}`} key={section.title}>
+              <time>{section.period}</time>
+              <i />
+              <strong>{section.title.split("：")[0]}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <div className="about-narrative">
-        {copy.sections.map((section, index) => (
+        {orderedSections.map((section, index) => (
           <section key={section.title} className={`about-card about-card-${index + 1}`}>
             <div className="about-section-meta">
-              <span>{String(index + 1).padStart(2, "0")}</span>
               <time>{section.period}</time>
             </div>
             <div className="about-card-content">
-              <h2>{section.title}</h2>
+              <div className="about-card-heading">
+                <h2>{section.title}</h2>
+              </div>
               <p>{section.body}</p>
               <div className="about-tag-row" aria-label="阶段技能">
                 {section.tags.map((tag) => (
