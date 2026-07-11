@@ -48,7 +48,7 @@ export const aboutCopy = {
   zh: {
     title: "从工程到产品成功",
     intro:
-      "这条路径从芯片和电子工程开始，逐步进入产品定义、全球市场、GTM、企业经营和AI智能硬件。它记录的不是职位变化，而是产品判断如何在技术边界、商业目标和组织协同之间持续迁移。",
+      "从芯片和电子工程出发，走向产品定义、全球市场、GTM、企业经营与AI智能硬件。这里关注的不是职位变化，而是产品判断如何穿过技术、商业与组织，持续迁移。",
     sections: [
       {
         title: "起点：技术边界形成产品判断",
@@ -76,7 +76,7 @@ export const aboutCopy = {
         period: "2022-2026",
         tags: ["个人著作", "企业管理", "企业战略"],
         body:
-          "写作不是为了包装履历，而是把真实经验整理成别人也能理解和使用的结构。《消费电子产品全生命周期管理实践》把产品生命周期、4P和商业成功放在同一个框架里，《职场何须懂》则讨论成长、协作、发展路径和心性问题。",
+          "写作，是把真实经验整理成别人也能理解和使用的结构。《消费电子产品全生命周期管理实践》把产品生命周期、4P和商业成功放在同一个框架里，《职场何须懂》则讨论成长、协作、发展路径和心性问题。",
       },
       {
         title: "现在：AI智能硬件产品拓展和生命周期管理",
@@ -90,7 +90,7 @@ export const aboutCopy = {
   en: {
     title: "From engineering to product success",
     intro:
-      "This path starts from chips and electronic engineering, then moves through product definition, global markets, GTM, business management, and AI hardware. It is less about job titles and more about how product judgment travels across technical boundaries, business goals, and organizational coordination.",
+      "From chips and electronic engineering to product definition, global markets, GTM, business management, and AI hardware. This page follows how product judgment travels across technology, business, and organization—not a list of job titles.",
     sections: [
       {
         title: "A technical beginning",

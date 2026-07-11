@@ -39,7 +39,7 @@ export default async function Home({
             lang === "zh" ? /(线索|编织|结构|观点……)/g : /(threads|weaves|structure)/gi,
           ).map((part, index) =>
             part === "观点……" ? <React.Fragment key={`${part}-${index}`}>{part}<br /></React.Fragment> :
-            /^(线索|编织|结构|threads|weaves|structure)$/i.test(part) ? (
+            (part === "编织" || (part === "线索" && index === 1) || /^(threads|weaves|structure)$/i.test(part)) ? (
               <span className="copy-keyword" key={`${part}-${index}`}>{part}</span>
             ) : part,
           )}

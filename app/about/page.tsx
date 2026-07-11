@@ -90,9 +90,18 @@ export default async function About({
         </div>
       </section>
 
+      <div className="about-detail-heading">
+        <p className="section-kicker">Detailed timeline</p>
+        <p>{lang === "zh" ? "以下按时间倒序，从现在回看这条路径如何形成。" : "The details below run in reverse time, looking back from the present."}</p>
+      </div>
+
       <div className="about-narrative">
-        {orderedSections.map((section, index) => (
-          <section key={section.title} className={`about-card about-card-${index + 1}`}>
+        {orderedSections.map((section, index) => {
+          const delimiter = lang === "zh" ? "。" : "."
+          const [lead, ...bodyParts] = section.body.split(delimiter)
+
+          return (
+          <section key={section.title} className={`about-card about-card-${index + 1} ${index === 0 ? "about-card-current" : ""}`}>
             <div className="about-section-meta">
               <time>{section.period}</time>
             </div>
@@ -100,7 +109,7 @@ export default async function About({
               <div className="about-card-heading">
                 <h2>{section.title}</h2>
               </div>
-              <p>{section.body}</p>
+              <p><span className="about-lead">{lead}{delimiter}</span>{bodyParts.join(delimiter)}</p>
               <div className="about-tag-row" aria-label="阶段技能">
                 {section.tags.map((tag) => (
                   <span key={tag}>{tag}</span>
@@ -108,7 +117,8 @@ export default async function About({
               </div>
             </div>
           </section>
-        ))}
+          )
+        })}
       </div>
     </main>
   )

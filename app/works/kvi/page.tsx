@@ -95,7 +95,7 @@ export default function KviPage() {
               <i style={{ background: "#f5f5f5" }} />
               <i style={{ background: "#e0e0e0" }} />
               <i style={{ background: "#666666" }} />
-              <i style={{ background: "#c4622e" }} />
+              <i style={{ background: "#b86a48" }} />
             </div>
             <div className="kvi-ratio-bars">
               {chartBars.map(([label, value]) => (
