@@ -425,7 +425,7 @@ p {
 .graph-teaser-copy { position: relative; z-index: 2; }
 .graph-teaser-action { bottom: 28px; color: var(--accent); font-size: 14px; font-weight: 700; position: absolute; }
 .graph-teaser-map { min-height: 164px; position: relative; }
-.graph-teaser-map img { border-radius: 6px; display: block; height: 100%; max-height: 220px; object-fit: cover; opacity: .88; width: 100%; }
+.graph-teaser-map img { border-radius: 6px; object-fit: cover; opacity: .88; }
 .teaser-trunk { background: rgba(184,106,72,.32); height: 68%; left: 57%; position: absolute; top: 25%; width: 1px; z-index: 1; }
 .teaser-connector { background: rgba(184,106,72,.32); height: 1px; left: 18%; position: absolute; width: 49%; z-index: 1; }
 .teaser-connector-a { top: 25%; }
@@ -2661,9 +2661,10 @@ p {
   }
 
   .home-lower-grid { grid-template-columns: 1fr; }
-  .graph-teaser { grid-column: auto; grid-template-columns: 1fr; }
-  .graph-teaser-map { min-height: 180px; }
-  .graph-teaser-map img { max-height: 220px; }
+  .graph-teaser { display: flex; flex-direction: column; gap: 20px; grid-column: auto; }
+  .graph-teaser-copy { display: flex; flex-direction: column; }
+  .graph-teaser-action { margin-top: 8px; position: static; }
+  .graph-teaser-map { flex: 0 0 180px; min-height: 180px; }
 
   .work-card {
     height: 240px;

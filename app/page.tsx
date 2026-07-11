@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import React from "react"
 
 import { KevinZMark } from "@/components/KevinZMark"
@@ -88,7 +89,13 @@ export default async function Home({
             <Link className="graph-teaser-action" href="/graph">{lang === "zh" ? "进入知识图谱" : "Open the graph"} ↗</Link>
           </div>
           <div className="graph-teaser-map">
-            <img src="/assets/knowledge-graph-preview-v2.png" alt="简化的知识图谱关系预览" />
+            <Image
+              src="/assets/knowledge-graph-preview-v2.png"
+              alt="简化的知识图谱关系预览"
+              fill
+              priority
+              sizes="(max-width: 860px) 100vw, 42vw"
+            />
           </div>
         </article>
       </section>
