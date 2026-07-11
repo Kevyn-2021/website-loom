@@ -1,4 +1,5 @@
 import { KevinZMark } from "@/components/KevinZMark"
+import Image from "next/image"
 
 export default function Contact() {
   return (
@@ -21,6 +22,21 @@ export default function Contact() {
           <p>这是目前唯一公开联系方式。</p>
         </div>
       </section>
+
+      <figure className="contact-memory-card">
+        <div className="contact-memory-image">
+          <Image
+            src="/assets/kevin-france-2019-sketch-anonymized.png"
+            alt="2019 年在法国与团队工作的素描记录"
+            fill
+            sizes="(max-width: 860px) 100vw, 1160px"
+          />
+        </div>
+        <figcaption>
+          <span>2019 / France</span>
+          <p>A moment from 2019, France - a memorable journey with an exceptional team.<br />Built on belief, teamwork, and execution, we overcame challenges and achieved extraordinary results.</p>
+        </figcaption>
+      </figure>
     </main>
   )
 }
