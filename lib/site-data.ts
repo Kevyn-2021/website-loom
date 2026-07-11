@@ -13,34 +13,34 @@ export const homeCopy = {
     title: "Kevin ZHANG",
     alias: "KevinZ 是 Kevin Zhang 的个人知识系统标识，也是一组持续整理的经历、作品和方法。",
     intro:
-      "一条从工程底层进入产品定义、GTM、全球市场和AI硬件的路径。这里记录的不是职位清单，而是产品判断如何在研发、市场、渠道、价格和供应链之间成形。",
+      "一条从工程底层走向产品定义、GTM、全球市场与AI智能硬件的路径。这里不复述职位，而是记录产品判断如何在研发、市场、渠道、价格与供应链之间形成。",
     identity:
-      "Kevin的经验横跨芯片、手机、机器人、海外市场和创业实践。技术背景带来边界意识，商业现场训练了对价格、渠道、节奏和组织协同的敏感度。",
+      "从芯片、手机到机器人与海外市场，技术边界和商业现场共同塑造了产品判断。",
     capability:
-      "核心能力是把生命周期、4P、IPMS和商业计划放在同一张图里处理，让产品从机会识别走向可交付、可销售、可经营。",
+      "把生命周期、4P、IPMS和商业计划放在同一套判断里，让机会走向可交付、可销售、可经营。",
     direction:
-      "下一阶段的关注点落在消费电子、机器人与AI硬件的交汇处。写作和知识图谱，则用于把长期实践整理成可以复用、也可以继续生长的结构。",
+      "持续关注消费电子、机器人与AI智能硬件，并把长期实践沉淀为写作与知识结构。",
     originTitle: "为什么要有这个网站",
     origin:
-      "人的经历常常不是一条直线，而是散落的线索：日常思考、项目现场、未整理的知识、不断变化的判断。Kevin ZHANG试图把这些线索重新梳理，让它们像丝线一样被编织成结构；再把形成的思想放到公共页面上，让外部读者看到一个更完整、更清晰的侧面。",
-    originMeta: ["Thread", "Loom", "Prism"],
+      "人的经历很少是一条直线，更像一组不断回到现场的线索：日常思考、沉淀的经验、正在经历的项目、未被整理的知识、仍在变化的观点……Kevin ZHANG把散落的线索编织成结构，放到公共页面上，让它被看见、被理解。",
+    originMeta: ["线索", "编织", "结构"],
   },
   en: {
     eyebrow: "Personal Knowledge System",
     title: "Kevin ZHANG",
     alias: "KevinZ is the shorthand identity for Kevin Zhang's personal knowledge system: a living structure of work, writing, and methods.",
     intro:
-      "A product path shaped by engineering, GTM, global markets, and AI hardware. This site is not a resume, but a structured record of judgment, methods, and work.",
+      "A product path from engineering to product definition, GTM, global markets, and AI hardware. This site does not repeat job titles; it records how product judgment takes shape across R&D, markets, channels, pricing, and supply chains.",
     identity:
-      "Kevin's work spans chips, smartphones, robotics, global markets, and early-stage business practice.",
+      "From chips and smartphones to robotics and global markets, product judgment is shaped by technical boundaries and commercial reality.",
     capability:
-      "The core method is connecting market insight, user needs, product definition, 4P, IPMS, and launch rhythm into executable decisions.",
+      "The method connects lifecycle, 4P, IPMS, and business planning, moving an opportunity toward delivery, sales, and sustainable operation.",
     direction:
-      "The current focus is the intersection of consumer electronics, robotics, and AI hardware, with writing and knowledge mapping turning practice into reusable structure.",
+      "The focus is the intersection of consumer electronics, robotics, and AI hardware, while writing and knowledge mapping turn practice into durable structure.",
     originTitle: "Why this site exists",
     origin:
-      "A life is rarely a finished answer. It is made of scattered threads: thoughts, projects, unfinished notes, and shifting judgment. KevinZ is a place to weave those threads into structure, then refract them outward into a clearer public expression.",
-    originMeta: ["Thread", "Loom", "Prism"],
+      "A life is rarely a straight line. It is made of threads: thoughts, projects, unfinished notes, and judgment that keeps changing. KevinZ weaves scattered threads into structure, then places it in public so it can be seen and understood.",
+    originMeta: ["Thread", "Loom", "Structure"],
   },
 }
 
