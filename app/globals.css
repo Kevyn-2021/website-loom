@@ -53,6 +53,16 @@ a {
   text-decoration: none;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.kg-node:focus-visible {
+  outline-offset: 4px;
+}
+
 .site-nav {
   align-items: center;
   border: 1px solid rgba(215, 215, 209, 0.76);
@@ -165,6 +175,22 @@ a {
 .nav-links a:hover,
 .brand:hover {
   color: var(--accent);
+}
+
+.nav-links a.is-active {
+  color: var(--foreground);
+  position: relative;
+}
+
+.nav-links a.is-active::after {
+  background: var(--accent);
+  border-radius: 999px;
+  bottom: 1px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 
 main {
@@ -554,6 +580,14 @@ p {
   line-height: 1.75;
   margin: 0;
   max-width: 720px;
+}
+
+.graph-hint {
+  color: var(--quiet);
+  font-size: 13px;
+  letter-spacing: 0;
+  margin: 0 !important;
+  text-transform: none;
 }
 
 .graph-flow-shell {
@@ -1212,7 +1246,7 @@ p {
 
 .about-narrative {
   display: grid;
-  gap: 14px;
+  gap: 18px;
   margin-top: 18px;
 }
 

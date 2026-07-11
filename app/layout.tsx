@@ -1,8 +1,6 @@
-import Link from "next/link"
 import "./globals.css"
 
-import { KevinZMark } from "@/components/KevinZMark"
-import { navItems } from "@/lib/site-data"
+import { SiteNav } from "@/components/SiteNav"
 
 export default function RootLayout({
   children,
@@ -12,22 +10,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body>
-        <nav className="site-nav" aria-label="主导航">
-          <Link className="brand" href="/">
-            <KevinZMark className="brand-mark" />
-            <span className="brand-name">
-              <span>Kevin</span>
-              <strong>Zhang</strong>
-            </span>
-          </Link>
-          <div className="nav-links">
-            {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
+        <SiteNav />
 
         {children}
       </body>

@@ -133,19 +133,19 @@ export const aboutCopy = {
 
 export const works = [
   {
-    title: "KevinZ 个人叙事网站",
-    type: "Website",
-    year: "2026-07",
-    description:
-      "把散落经历、作品和思考方式整理成可浏览的个人叙事网站。",
-  },
-  {
-    title: "飞书画板 SVG 指南",
+    title: "飞书CLI-画板创作",
     type: "App",
     year: "2026-07",
     description:
       "为飞书 CLI 的文档、画板与 SVG 导入建立统一规则，确保本地源文件、云端画板和可编辑节点验证保持一致。",
     href: "/works/feishu-cli-svg-guideline",
+  },
+  {
+    title: "KevinZ 个人叙事网站",
+    type: "Website",
+    year: "2026-06",
+    description:
+      "把散落经历、作品和思考方式整理成可浏览的个人叙事网站。",
   },
   {
     title: "VI 视觉风格系统",

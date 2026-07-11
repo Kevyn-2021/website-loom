@@ -32,7 +32,7 @@ export default function FeishuCliSvgGuidelinePage() {
   return (
     <main className="page work-detail-page">
       <p className="section-kicker">Feishu CLI</p>
-      <h1>飞书画板 SVG 指南</h1>
+      <h1>飞书CLI-画板创作</h1>
       <p className="page-lede">
         这套 guideline 用来约束飞书文档、SVG 源文件和画板导入之间的工作方式。它既是执行规则，也是一个方便别人复用的模板系统。
       </p>

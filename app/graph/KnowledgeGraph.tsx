@@ -46,6 +46,7 @@ type FlowNodeData = {
   label: string
   note: string
   related: boolean
+  onActivate: () => void
 }
 
 type FlowNode = Node<FlowNodeData, "knowledgeNode">
@@ -64,6 +65,17 @@ function KnowledgeNode({ data }: NodeProps<FlowNode>) {
       className={`kg-node kg-node-${data.cluster} ${
         data.active ? "is-active" : ""
       } ${data.related ? "is-related" : "is-muted"}`}
+      role="button"
+      tabIndex={0}
+      aria-pressed={data.active}
+      aria-label={data.label}
+      onClick={data.onActivate}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault()
+          data.onActivate()
+        }
+      }}
     >
       <Handle className="kg-handle" position={Position.Top} type="target" />
       <Handle className="kg-handle" position={Position.Bottom} type="source" />
@@ -142,6 +154,7 @@ export function KnowledgeGraph({ graph }: KnowledgeGraphProps) {
             label: node.label,
             note: node.note,
             related: isRelated,
+            onActivate: () => setActiveNodeId(node.id),
           },
           draggable: false,
           selectable: true,
@@ -195,6 +208,7 @@ export function KnowledgeGraph({ graph }: KnowledgeGraphProps) {
         <p>
           把技术、产品、市场、写作与 AI 硬件放在同一张图里，看见经验如何彼此支撑、迁移，并逐渐沉淀成方法。
         </p>
+        <p className="graph-hint">点击或悬停任意节点，查看它与其它概念的关系。</p>
       </div>
 
       <div className="graph-flow-shell">

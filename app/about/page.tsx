@@ -53,12 +53,12 @@ export default async function About({
 
       <div className="about-narrative">
         {copy.sections.map((section, index) => (
-          <section key={section.title}>
+          <section key={section.title} className={`about-card about-card-${index + 1}`}>
             <div className="about-section-meta">
               <span>{String(index + 1).padStart(2, "0")}</span>
               <time>{section.period}</time>
             </div>
-            <div>
+            <div className="about-card-content">
               <h2>{section.title}</h2>
               <p>{section.body}</p>
               <div className="about-tag-row" aria-label="阶段技能">
