@@ -88,7 +88,7 @@ export default async function Home({
             <Link className="graph-teaser-action" href="/graph">{lang === "zh" ? "进入知识图谱" : "Open the graph"} ↗</Link>
           </div>
           <div className="graph-teaser-map">
-            <img src="/assets/knowledge-graph-preview.png" alt="简化的知识图谱关系预览" />
+            <img src="/assets/knowledge-graph-preview-v2.png" alt="简化的知识图谱关系预览" />
           </div>
         </article>
       </section>

@@ -40,6 +40,17 @@ export function WritingList({ posts }: { posts: WritingPost[] }) {
   return (
     <>
       <section className="works-filter writing-filter" aria-label="写作标签筛选">
+        <button
+          aria-pressed={activeTags.size === writingTags.length}
+          className={activeTags.size === writingTags.length ? "is-active filter-reset" : "filter-reset"}
+          onClick={() => {
+            setActiveTags(new Set(writingTags))
+            setCurrentPage(1)
+          }}
+          type="button"
+        >
+          全部
+        </button>
         {writingTags.map((tag) => (
           <button
             aria-pressed={activeTags.has(tag)}

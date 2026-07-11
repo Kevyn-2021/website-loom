@@ -45,6 +45,14 @@ export default function Works() {
       </p>
 
       <section className="works-filter" aria-label="作品标签筛选">
+        <button
+          aria-pressed={activeTags.size === workTags.length}
+          className={activeTags.size === workTags.length ? "is-active filter-reset" : "filter-reset"}
+          onClick={() => setActiveTags(new Set(workTags))}
+          type="button"
+        >
+          全部
+        </button>
         {workTags.map((tag) => (
           <button
             aria-pressed={activeTags.has(tag)}

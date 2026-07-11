@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 import { KevinZMark } from "@/components/KevinZMark"
 import { aboutCopy } from "@/lib/site-data"
@@ -61,6 +62,13 @@ export default async function About({
           <p>亚洲、美洲、欧洲让我看到：<br />同一个产品，必须经过不同文化、渠道与生活方式的重新翻译。</p>
           </div>
           <div className="world-map-visual" role="img" aria-label="Kevin 曾在中国、美国、墨西哥、秘鲁、西班牙和法国常驻或工作">
+          <Image
+            src="/assets/global-footprint-map.png"
+            alt=""
+            fill
+            sizes="(max-width: 860px) 100vw, 900px"
+            className="world-map-art"
+          />
           <div className="map-grid" aria-hidden="true" />
           <span className="map-caption">6 markets · product / GTM / sales</span>
           </div>

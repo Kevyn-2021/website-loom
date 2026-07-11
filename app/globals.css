@@ -168,6 +168,8 @@ a {
   justify-content: flex-end;
 }
 
+.nav-menu-toggle { display: none; }
+
 .nav-links a {
   color: var(--muted);
   font-size: 14px;
@@ -537,11 +539,15 @@ p {
   transform: translateY(-1px);
 }
 
+.works-filter button.filter-reset { border-color: rgba(184,106,72,.28); color: var(--accent); }
+.works-filter button.filter-reset:not(.is-active) { background: rgba(255,255,252,.24); border-color: var(--line); color: var(--muted); }
+
 .work-card {
-  display: flex;
-  flex-direction: column;
+  align-content: start;
+  display: grid;
+  gap: 14px;
+  grid-template-rows: 32px 56px minmax(0, 1fr);
   height: 260px;
-  justify-content: space-between;
   overflow: hidden;
   padding: 22px;
   transition:
@@ -581,8 +587,10 @@ p {
 
 .work-card h2 {
   font-size: 21px;
-  margin: 18px 0 10px;
+  margin: 0;
 }
+
+.work-card p { margin: 0; }
 
 .graph-panel {
   display: grid;
@@ -1263,8 +1271,8 @@ p {
 .global-heading > p:last-child { bottom: 78px; color: var(--muted); left: 34px; line-height: 1.75; margin: 0; max-width: 560px; position: absolute; }
 .world-map { background: rgba(255,255,252,.78); border: 1px solid var(--line); border-radius: 8px; height: 520px; overflow: hidden; position: relative; box-shadow: 0 18px 70px var(--shadow); }
 .world-map-visual { inset: 150px 210px 58px 0; position: absolute; }
-.world-map-visual::before { background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center / 92% auto no-repeat; content: ""; filter: grayscale(1) brightness(1.7) contrast(.5); inset: 12px; opacity: .18; position: absolute; }
-.map-grid { background-image: linear-gradient(rgba(75,68,57,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(75,68,57,.08) 1px, transparent 1px); background-size: 54px 38px; inset: 0; opacity: .72; position: absolute; }
+.world-map-art { object-fit: cover; }
+.map-grid { opacity: 0; position: absolute; }
 .map-pin { align-items: center; color: var(--foreground); display: flex; font-size: 12px; font-weight: 700; gap: 6px; padding-left: calc(var(--line-len) + 12px); position: absolute; transform: translate(-50%, -50%); z-index: 3; }
 .map-pin::before { background: var(--pin); content: ""; height: 1px; left: 11px; opacity: .66; position: absolute; top: 50%; width: var(--line-len); }
 .map-pin i { background: var(--pin); border: 3px solid rgba(255,255,252,.94); border-radius: 50%; box-shadow: 0 0 0 5px color-mix(in srgb, var(--pin) 16%, transparent), 0 5px 18px color-mix(in srgb, var(--pin) 20%, transparent); display: block; height: 11px; left: 0; position: absolute; width: 11px; }
@@ -1278,11 +1286,12 @@ p {
 .map-country { background: color-mix(in srgb, var(--pin) 40%, transparent); border-radius: 50%; filter: blur(10px); height: 32px; opacity: .22; position: absolute; transform: translate(-50%, -50%); width: 32px; z-index: 1; }
 .map-pin.china { --pin: #b86a48; }.map-pin.usa { --pin: #667f94; }.map-pin.mexico { --pin: #b18a5b; }.map-pin.peru { --pin: #7c8d6a; }.map-pin.spain { --pin: #9b6e68; }.map-pin.france { --pin: #786d91; }
 .map-caption { bottom: 22px; color: var(--quiet); font-family: "SF Mono", monospace; font-size: 11px; position: absolute; right: 28px; z-index: 2; }
-.market-legend-panel { background: rgba(255,255,252,.7); border: 1px solid rgba(226,218,203,.92); border-radius: 8px; box-shadow: 0 14px 42px rgba(23,23,23,.055); padding: 15px; position: absolute; right: 28px; top: 178px; width: 174px; z-index: 4; }
-.market-legend { display: grid; gap: 13px; grid-template-columns: 1fr; }
+.market-legend-panel { background: rgba(255,255,252,.7); border: 1px solid rgba(226,218,203,.92); border-radius: 8px; bottom: 58px; box-shadow: 0 14px 42px rgba(23,23,23,.055); display: flex; padding: 15px; position: absolute; right: 28px; top: 150px; width: 174px; z-index: 4; }
+.market-legend { align-items: center; display: grid; flex: 1; grid-template-columns: 1fr; grid-template-rows: repeat(6, minmax(0, 1fr)); }
 .market-item { align-items: center; color: var(--muted); display: inline-flex; font-size: 13px; gap: 7px; white-space: nowrap; }
 .market-item i { background: var(--pin); border-radius: 50%; box-shadow: 0 0 0 4px color-mix(in srgb, var(--pin) 14%, transparent); display: block; height: 8px; width: 8px; }
 .market-item-1 { --pin: #b86a48; }.market-item-2 { --pin: #667f94; }.market-item-3 { --pin: #b18a5b; }.market-item-4 { --pin: #7c8d6a; }.market-item-5 { --pin: #9b6e68; }.market-item-6 { --pin: #786d91; }
+.market-item-1 { color: var(--accent); font-weight: 700; }
 
 .about-profile-card {
   display: grid;
@@ -2519,12 +2528,53 @@ p {
     flex-direction: column;
     gap: 14px;
     padding: 18px 22px;
-    position: static;
+    position: relative;
   }
 
   .nav-links {
+    display: none;
     justify-content: flex-start;
+    width: 100%;
   }
+
+  .site-nav.is-open .nav-links {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-menu-toggle {
+    align-items: center;
+    background: rgba(255,255,252,.68);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--foreground);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-size: 13px;
+    gap: 8px;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0 14px;
+    position: absolute;
+    right: 22px;
+    top: 18px;
+  }
+
+  .nav-menu-toggle i,
+  .nav-menu-toggle i::before,
+  .nav-menu-toggle i::after {
+    background: var(--foreground);
+    content: "";
+    display: block;
+    height: 1px;
+    position: relative;
+    width: 14px;
+  }
+
+  .nav-menu-toggle i::before { position: absolute; top: -5px; }
+  .nav-menu-toggle i::after { position: absolute; top: 5px; }
 
   main {
     padding: 40px 22px 72px;
@@ -2652,8 +2702,7 @@ p {
     inset: 170px 0 82px;
   }
 
-  .market-legend-panel { padding: 13px; right: 16px; top: 162px; width: 154px; }
-  .market-legend { gap: 11px; }
+  .market-legend-panel { bottom: 82px; padding: 13px; right: 16px; top: 170px; width: 154px; }
 
   .global-heading > p:last-child { bottom: 104px; }
 
