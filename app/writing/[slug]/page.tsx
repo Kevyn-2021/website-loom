@@ -15,6 +15,7 @@ export default async function WritingDetailPage({
   params,
 }: WritingDetailProps) {
   const { slug } = await params
+  const decodedSlug = decodeURIComponent(slug)
   const post = getWritingBySlug(slug)
 
   if (!post) {
@@ -42,7 +43,7 @@ export default async function WritingDetailPage({
         </div>
 
         <div
-          className="markdown-body"
+          className={`markdown-body${decodedSlug.includes("尼尔森十大可用性原则") ? " markdown-body--nielsen" : ""}`}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </article>

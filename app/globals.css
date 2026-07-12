@@ -1158,6 +1158,18 @@ p {
   max-width: 100%;
 }
 
+/* 尼尔森文章：除总览图外，配图显示尺寸减半（保持宽高比），仅作用于本篇 */
+.markdown-body--nielsen img:not([src*="heuristic-summary"]) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+}
+
+/* 尼尔森文章：刘飞 Facebook 加载页单独再减半（相对当前 50% 显示为 25%） */
+.markdown-body--nielsen img[src$="-Facebook.webp"] {
+  max-width: 25%;
+}
+
 .markdown-body figcaption {
   color: var(--muted);
   font-size: 13px;
