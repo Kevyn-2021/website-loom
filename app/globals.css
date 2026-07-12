@@ -1145,7 +1145,8 @@ p {
 }
 
 .markdown-body figure {
-  margin: 34px 0;
+  margin: 34px auto;
+  max-width: 100%;
 }
 
 .markdown-body img {
@@ -1158,17 +1159,12 @@ p {
   max-width: 100%;
 }
 
-/* 尼尔森文章：除总览图外，配图显示尺寸减半（保持宽高比），仅作用于本篇 */
-.markdown-body--nielsen img:not([src*="heuristic-summary"]) {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 50%;
-}
-
-/* 尼尔森文章：刘飞 Facebook 加载页单独再减半（相对当前 50% 显示为 25%） */
-.markdown-body--nielsen img[src$="-Facebook.webp"] {
-  max-width: 25%;
-}
+/* 配图尺寸工具类：在文章里用 ![说明|50](图) 控制，默认与页面等宽（100%） */
+.markdown-body figure.w-75 { max-width: 75%; }
+.markdown-body figure.w-50 { max-width: 50%; }
+.markdown-body figure.w-33 { max-width: 33.333%; }
+.markdown-body figure.w-25 { max-width: 25%; }
+.markdown-body figure.w-full { max-width: 100%; }
 
 .markdown-body figcaption {
   color: var(--muted);

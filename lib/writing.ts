@@ -206,8 +206,20 @@ function renderMixedBlock(lines: string[]) {
   return html.join("")
 }
 
+const SIZE_CLASS: Record<string, string> = {
+  "25": "w-25",
+  "33": "w-33",
+  "50": "w-50",
+  "75": "w-75",
+  "full": "w-full",
+  "100": "w-full",
+}
+
 function renderImage(alt: string, src: string) {
-  return `<figure><img alt="${escapeAttribute(alt)}" src="${escapeAttribute(src)}" /><figcaption>${renderInline(alt)}</figcaption></figure>`
+  const [cleanAlt, sizeToken] = alt.split("|")
+  const sizeClass = sizeToken ? SIZE_CLASS[sizeToken.trim()] : undefined
+  const figureClass = sizeClass ? ` class="${sizeClass}"` : ""
+  return `<figure${figureClass}><img alt="${escapeAttribute(cleanAlt)}" src="${escapeAttribute(src)}" /><figcaption>${renderInline(cleanAlt)}</figcaption></figure>`
 }
 
 function renderParagraph(lines: string[]) {
