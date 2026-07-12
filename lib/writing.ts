@@ -207,12 +207,12 @@ function renderMixedBlock(lines: string[]) {
 }
 
 const SIZE_CLASS: Record<string, string> = {
-  "25": "w-25",
-  "33": "w-33",
-  "50": "w-50",
-  "75": "w-75",
-  "full": "w-full",
-  "100": "w-full",
+  "25": "img-25",
+  "33": "img-33",
+  "50": "img-50",
+  "75": "img-75",
+  "full": "img-full",
+  "100": "img-full",
 }
 
 function renderImage(alt: string, src: string) {

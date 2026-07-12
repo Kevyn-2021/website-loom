@@ -1159,12 +1159,13 @@ p {
   max-width: 100%;
 }
 
-/* 配图尺寸工具类：在文章里用 ![说明|50](图) 控制，默认与页面等宽（100%） */
-.markdown-body figure.w-75 { max-width: 75%; }
-.markdown-body figure.w-50 { max-width: 50%; }
-.markdown-body figure.w-33 { max-width: 33.333%; }
-.markdown-body figure.w-25 { max-width: 25%; }
-.markdown-body figure.w-full { max-width: 100%; }
+/* 配图尺寸工具类：在文章里用 ![说明|50](图) 控制，默认与页面等宽（100%）
+   类名用 img-* 前缀，避免与 Tailwind 自带的 w-50/w-25 等间距类冲突 */
+.markdown-body figure.img-75 { max-width: 75%; }
+.markdown-body figure.img-50 { max-width: 50%; }
+.markdown-body figure.img-33 { max-width: 33.333%; }
+.markdown-body figure.img-25 { max-width: 25%; }
+.markdown-body figure.img-full { max-width: 100%; }
 
 .markdown-body figcaption {
   color: var(--muted);
