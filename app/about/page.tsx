@@ -19,7 +19,7 @@ export default async function About({
     lang === "zh"
       ? [
           ["起点", "工程与芯片"],
-          ["路径", "产品 / GTM / 销售"],
+          ["路径", "产品 / Go-to-Market / 销售"],
           ["方向", "AI硬件与个人知识系统"],
         ]
       : [
@@ -58,8 +58,8 @@ export default async function About({
         <div className="world-map">
           <div className="global-heading">
           <p className="section-kicker">Global context</p>
-          <h2 id="global-title">在不同市场里，理解产品如何落地</h2>
-          <p>亚洲、美洲、欧洲让我看到：<br />同一个产品，必须经过不同文化、渠道与生活方式的重新翻译。</p>
+          <h2 id="global-title">6个国家的生活经历，内化为产品落地的实感</h2>
+          <p>作为一个中国人，在亚洲、美洲、欧洲工作与生活，<br />让我真正读懂当地市场——也才知道，怎样的产品与渠道，才能在那里被接受。</p>
           </div>
           <div className="world-map-visual" role="img" aria-label="Kevin 曾在中国、美国、墨西哥、秘鲁、西班牙和法国常驻或工作">
           <Image

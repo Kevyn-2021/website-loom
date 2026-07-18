@@ -1300,7 +1300,6 @@ p {
 .market-item { align-items: center; color: var(--muted); display: inline-flex; font-size: 13px; gap: 7px; white-space: nowrap; }
 .market-item i { background: var(--pin); border-radius: 50%; box-shadow: 0 0 0 4px color-mix(in srgb, var(--pin) 14%, transparent); display: block; height: 8px; width: 8px; }
 .market-item-1 { --pin: #b86a48; }.market-item-2 { --pin: #667f94; }.market-item-3 { --pin: #b18a5b; }.market-item-4 { --pin: #7c8d6a; }.market-item-5 { --pin: #9b6e68; }.market-item-6 { --pin: #786d91; }
-.market-item-1 { color: var(--accent); font-weight: 700; }
 
 .about-profile-card {
   display: grid;
